@@ -233,6 +233,10 @@ a:hover{
 	background-color: red;
 }
 
+.gray{
+	background-color: gray;
+}
+
 .orange{
 	background-color: orange;
 }
@@ -253,7 +257,7 @@ a:hover{
 	background-color: #fff;
 }
 
-.online-title,.offline-title{
+.online-title,.offline-title,.out-title{
 	font-size: 1.6em;
 	font-weight: 500;
 	line-height: 50px;
@@ -328,13 +332,13 @@ a:hover{
 	z-index: 10;
 }
 
-.filter-content .speed,.filter-content .angel,.filter-content .size{
+.filter-content .speed,.filter-content .angel,.filter-content .size,.filter-content .brake{
 	height: 56px;
 }
-.filter-content .speed,.filter-content .angel,.filter-content .size,.filter-content .brake{
+.filter-content .speed,.filter-content .angel,.filter-content .size,.filter-content .brake,.filter-content .exception{
 	display: none;
 }
-.filter-content .speed input,.filter-content .angel input{
+.filter-content .angel input,.filter-content .brake input{
 	width: 150px;
 	height: 35px;
 	padding: 0 10px;
@@ -343,41 +347,49 @@ a:hover{
 	margin-left: 10px
 }
 
-.filter-content .size select{
+.filter-content .brake input:first-child{
+	margin-right: 30px;
+}
+
+.filter-content .size select ,select{
 	width: 200px;
 	height: 35px;
 	padding: 0 10px;
-	border-radius: 5px;
+	border-radius: 3px;
 	margin-top: 8px;
 	margin-left: 10px;
 	border:1px solid #ddd;
 }
+	
+.filter-content .size option{
+	height: 35px;
+}
 
-.filter-content .brake{
+.filter-content .exception{
 	font-size: 1.3em;
 	margin:10px 0;
 	padding-top: 8px;
 }
 
-.filter-content .brake>div{
+.filter-content .exception>div{
 	float: left;
 	margin-right: 15px;
 	margin-bottom: 10px;
 }
 
-.filter-content .brake input{
+.filter-content .exception input{
 	margin-right: 5px;
 	vertical-align: -2px;
 	display: none;
 }
 
-.filter-content .brake label{
+.filter-content .exception label{
 	font-weight: 500;
 	font-size: .9em;
     cursor: pointer;
 }
 
-.filter-content .brake input[type="checkbox"] + label::before {
+.filter-content .exception input[type="checkbox"] + label::before {
     content: "\a0";  /*不换行空格*/
     display: inline-block;
     vertical-align: .2em;
@@ -391,14 +403,12 @@ a:hover{
     line-height: .65;  /*行高不加单位，子元素将继承数字乘以自身字体尺寸而非父元素行高*/
 }
 
-.filter-content .brake input[type="checkbox"]:checked + label::before {
+.filter-content .exception input[type="checkbox"]:checked + label::before {
     content: "\2713";
     background-color: yellowgreen;
 }
 
-.filter-content .size option{
-	height: 35px;
-}
+
 
 .filter-title:hover{
 	background-color: #ddd;
@@ -517,4 +527,106 @@ a:hover{
 	background-color: #07d0f1;
 	border: 1px solid #07d0f1;
 	border-radius: 3px;
+}
+
+.user-list{
+	padding: 10px;
+}
+
+.user-list>div,.out-list>div{
+	background-color: #fff;
+	height: 100%;
+	border-radius: 3px;
+	padding: 10px;
+}
+
+.user-tr,.user-td{
+	background-color: #fff;
+	line-height: 40px;
+	text-align: center;
+}
+
+.user-td button{
+	background-color: transparent;
+	color: #07d0f1;
+	font-size: 1.2em;
+	border:none;
+	font-weight: bold;
+}
+
+.user-add,.out-list{
+	padding: 10px;
+	display: none;
+}
+
+.user-add>div{
+	background-color: #fff;
+	padding: 40px;
+	height: 100%;
+}
+
+.user-in{
+	font-size: 1.2em;
+	margin: 20px 30px;
+
+}
+
+.user-in span{
+	display: inline-block;
+	width: 100px;
+	text-align: right;
+	margin-right: 30px;
+}
+
+.user-in input{
+	width: 250px;
+	height: 35px;
+	padding: 0 10px;
+	border-radius: 3px;
+	margin-top: 8px;
+	margin-left: 10px;
+	font-size: .9em;
+}
+
+.user-add button{
+	width: 250px;
+	height: 40px;
+	border-radius: 3px;
+	margin-top: 60px;
+	margin-left: 182px;
+	font-size: .9em;
+	color: #fff;
+	background-color: #07d0f1;
+	border:none;
+}
+
+.out-car>.user-td:first-child{
+	color: red;
+}
+
+.the-car{
+	display: inline-block;
+}
+
+.the-car>div{
+	display: inline-block;
+	border-radius: 3px;
+	border:1px solid #ddd;
+	width: 175px;
+	height:35px;
+	box-sizing: border-box;
+	padding: 5px 30px 5px 10px;
+	position:relative;
+	margin: 10px 10px;
+}
+
+.the-car>div>i{
+	position: absolute;
+	line-height: 33px;
+	right: 0px;
+	top: 0px;
+	border-right:5px solid transparent;
+	border-left:5px solid transparent;
+	cursor: pointer;
+
 }

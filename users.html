@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>智能车</title>
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<!-- Main -->
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<!-- Font-awesome -->
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<!-- Animate -->
+<link rel="stylesheet" type="text/css" href="css/animate.css">
+</head>
+
+<body style="">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="row header" style="background-color: #171717;display: block;">
+					<div class="logo col-sm-8 col-sm-offset-1 col-xs-6">智能车云平台</div>
+					<div class="header-right">
+						<img src="image/avatar.png" class="user-picture">
+						<span class="user-name">admin</span>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-2 col-md-2 col-xs-12 menu" style="height:80px;min-width: 130px;padding: 0; background-color: rgba(37,37,37,1);">
+						<ul style="list-style: none;">
+							<li class="col-sm-12 hidden-xs" style="height: 80px;line-height:80px; font-size: 1.2em;letter-spacing:3px">
+								<i class="fa fa-navicon" style="font-size: 1.4em;"></i>
+							</li>
+							<li class="col-sm-12"  onclick="javascript:window.location.href='dashboard.html'">
+								<i class="fa fa-list-alt"></i>车辆概况
+								<span class="green">36</span>
+								<span class="orange" style="margin-left: 45px;">7</span>
+							</li>
+							<li class="col-sm-12" onclick="javascript:window.location.href='map.html'">
+								<i class="fa fa-map"></i>车辆分布
+							</li>
+							<li class="col-sm-12"  onclick="javascript:window.location.href='log.html'">
+								<i class="fa fa-list-ol"></i>车辆日志
+							</li>
+							<li class="col-sm-12"  onclick="javascript:window.location.href='warning.html'">
+								<i class="fa fa-warning"></i>车辆异常
+								<span class="red">12</span>
+							</li>
+							<li class="col-sm-12"  style="background-color: #EAEDEB;color: #000;" >
+								<i class="fa fa-users"></i>用户管理
+							</li>
+							<li class="col-sm-12"  onclick="javascript:window.location.href='car_type.html'">
+								<i class="fa fa-truck"></i>车型管理
+							</li>
+							<li class="col-sm-12"  onclick="javascript:window.location.href='car.html'">
+								<i class="fa fa-car"></i>车辆管理
+							</li>
+							<li class="col-sm-12"  onclick="javascript:window.location.href='car_team.html'">
+								<i class="fa fa-bicycle"></i>车队管理
+							</li>
+							<li class="col-sm-12"  onclick="javascript:window.location.href='push.html'">
+								<i class="fa fa-envelope"></i>推送设置
+							</li>
+						</ul>
+					</div>
+					<div class="col-sm-10 control" style="background-color: #f4f3f2;">
+						<div class="row general center">
+							<div class="col-md-1 online-title is-online">用户列表</div>
+							<div class="col-md-1 offline-title">添加用户</div>
+							<div class="search-online">
+								<input type="text" name="search" placeholder="搜索关键字">
+								<i class="fa fa-search" style="position: absolute;right: 15px; top: 8px; color: #ddd;font-size: 1.5em;"></i>
+							</div>
+						</div>
+						<div class="row user-list">
+							<div class="col-sm-12">
+								<div style="border-bottom: 1px solid #eee;">
+									<div class="user-tr col-sm-2">
+										ID
+									</div>
+									<div class="user-tr col-sm-2">
+										用户名
+									</div>
+									<div class="user-tr col-sm-2">
+										邮箱
+									</div>
+									<div class="user-tr col-sm-2">
+										电话号码
+									</div>
+									<div class="user-tr col-sm-2">
+										角色
+									</div>
+									<div class="user-tr col-sm-2">
+										操作
+									</div>
+									<div class="clearfix"></div>
+								</div>
+								<div>
+									<div class="user-td col-sm-2">
+										1
+									</div>
+									<div class="user-td col-sm-2">
+										admin
+									</div>
+									<div class="user-td col-sm-2">
+										38928329392@qq.com
+									</div>
+									<div class="user-td col-sm-2">
+										15138298333
+									</div>
+									<div class="user-td col-sm-2">
+										管理员
+									</div>
+									<div class="user-td col-sm-2">
+										<button>更新</button>
+										<button>删除</button>
+									</div>
+								</div>
+								<div>
+									<div class="user-td col-sm-2">
+										2
+									</div>
+									<div class="user-td col-sm-2">
+										admin
+									</div>
+									<div class="user-td col-sm-2">
+										38928329392@qq.com
+									</div>
+									<div class="user-td col-sm-2">
+										15138298333
+									</div>
+									<div class="user-td col-sm-2">
+										管理员
+									</div>
+									<div class="user-td col-sm-2">
+										<button>更新</button>
+										<button>删除</button>
+									</div>
+								</div>
+								<div>
+									<div class="user-td col-sm-2">
+										3
+									</div>
+									<div class="user-td col-sm-2">
+										admin
+									</div>
+									<div class="user-td col-sm-2">
+										38928329392@qq.com
+									</div>
+									<div class="user-td col-sm-2">
+										15138298333
+									</div>
+									<div class="user-td col-sm-2">
+										管理员
+									</div>
+									<div class="user-td col-sm-2">
+										<button>更新</button>
+										<button>删除</button>
+									</div>
+								</div>
+								<div>
+									<div class="user-td col-sm-2">
+										4
+									</div>
+									<div class="user-td col-sm-2">
+										admin
+									</div>
+									<div class="user-td col-sm-2">
+										38928329392@qq.com
+									</div>
+									<div class="user-td col-sm-2">
+										15138298333
+									</div>
+									<div class="user-td col-sm-2">
+										管理员
+									</div>
+									<div class="user-td col-sm-2">
+										<button>更新</button>
+										<button>删除</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row user-add">
+							<div>
+								<div class="user-in col-sm-12 user-id">
+									<span>用户名:</span><input type="text" name="">
+								</div>
+								<div class="user-in col-sm-12 user-email">
+									<span>邮箱:</span><input type="email" name="">
+								</div>
+								<div class="user-in col-sm-12 user-phone">
+									<span>电话号码:</span><input type="tel" name="">
+								</div>
+								<div class="user-in col-sm-12 user-role">
+									<span>角色:</span><select>
+										<option>管理员</option>
+										<option>游客</option>
+									</select>
+								</div>
+								<div class="user-in col-sm-12 user-password">
+									<span>初始密码:</span><input type="password" name="">
+								</div>
+								<div class="user-in col-sm-12 user-password">
+									<span>确认密码:</span><input type="password" name="">
+								</div>
+
+								<button>确认</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<!-- JQuery -->
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<!-- Waypoints -->
+<script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
+<!-- Main -->
+<script type="text/javascript" src="js/main.js"></script>
+
+<script type="text/javascript">
+
+	function change_height(){
+		var width=$("body").width();
+		if(width>=766){
+			var height=$(window).height();
+
+			$(".user-list").height(function(n,c){
+				return height-81-84-26;
+			})
+			$(".user-add").height(function(n,c){
+				return height-81-84-26;
+			})
+			var header_height=$(".header").height();
+			$(".menu").height(function(n,c){
+				return height-header_height;
+			});
+			$(".control").height(function(n,c){
+				return height-header_height;
+			});
+
+			$('.menu_after').css({
+					height:function(n,c){
+					return height-header_height-100;
+				},
+					left:function(n,c){
+						var menu_width=$(".menu").width();
+					return menu_width;
+				},
+					display:function(n,c){
+						return 'block';
+					}
+			});
+		}else{
+			$(".menu").height(60);
+			$(".control").css('height',"auto");
+			$(".menu").css("max-width","100%");
+			$(".menu").css("min-height","0px");
+			$('.menu_after').css({"display":"none"});
+		}
+	}
+	change_height();
+	$(window).resize(function(){
+			change_height();
+	});
+
+	$(".online-title").on('click',function(){
+		$(".offline-title").removeClass("is-online");
+		$(".online-title").addClass("is-online");
+		$(".user-add").css("display","none");
+		$(".user-list").css("display","block");
+	});
+	$(".offline-title").on('click',function(){
+		$(".online-title").removeClass("is-online");
+		$(".offline-title").addClass("is-online");
+		$(".user-add").css("display","block");
+		$(".user-list").css("display","none");
+	})
+
+	$(".filter-title").on("mouseover",function(){
+		$(".filter-content").children().css("display","none");
+		var x=$(this).attr("data");
+		$("."+x).css("display","block");
+
+	})
+	$(".filter-title").on("mouseout",function(){
+		var x=$(this).attr("data");
+	})
+
+</script>
+</html>

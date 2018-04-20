@@ -32,21 +32,37 @@
 							<li class="col-sm-12 hidden-xs" style="height: 80px;line-height:80px; font-size: 1.2em;letter-spacing:3px">
 								<i class="fa fa-navicon" style="font-size: 1.4em;"></i>
 							</li>
-							<li class="col-sm-12 col-xs-3" style="background-color: #EAEDEB;color: #000;">
+							<li class="col-sm-12" style="background-color: #EAEDEB;color: #000;">
 								<i class="fa fa-list-alt"></i>车辆概况
 								<span class="green">36</span>
 								<span class="orange" style="margin-left: 45px;">7</span>
 							</li>
-							<li class="col-sm-12 col-xs-3" onclick="javascript:window.location.href='index3.html'">
-								<i class="fa fa-map"></i>车辆地图
+							<li class="col-sm-12" onclick="javascript:window.location.href='map.html'">
+								<i class="fa fa-map"></i>车辆分布
 							</li>
-							<li class="col-sm-12 col-xs-3">
+							<li class="col-sm-12"  onclick="javascript:window.location.href='log.html'">
 								<i class="fa fa-list-ol"></i>车辆日志
 							</li>
-							<li class="col-sm-12 col-xs-3">
+							<li class="col-sm-12"  onclick="javascript:window.location.href='warning.html'">
 								<i class="fa fa-warning"></i>车辆异常
 								<span class="red">12</span>
 							</li>
+							<li class="col-sm-12"  onclick="javascript:window.location.href='users.html'">
+								<i class="fa fa-users"></i>用户管理
+							</li>
+							<li class="col-sm-12"  onclick="javascript:window.location.href='car_type.html'">
+								<i class="fa fa-truck"></i>车型管理
+							</li>
+							<li class="col-sm-12"  onclick="javascript:window.location.href='car.html'">
+								<i class="fa fa-car"></i>车辆管理
+							</li>
+							<li class="col-sm-12"  onclick="javascript:window.location.href='car_team.html'">
+								<i class="fa fa-bicycle"></i>车队管理
+							</li>
+							<li class="col-sm-12"  onclick="javascript:window.location.href='push.html'">
+								<i class="fa fa-envelope"></i>推送设置
+							</li>
+
 						</ul>
 						<div class="menu_after"></div>
 					</div>
@@ -66,16 +82,19 @@
 										条件排序
 								</div>
 								<div class="filter-title center" data="speed">
-									车速
+									地域
 								</div>
 								<div  class="filter-title center" data="size">
-									车辆大小
+									车型
 								</div>
 								<div class="filter-title center" data="brake">
-									刹车系统
+									车队
 								</div>
 								<div class="filter-title center" data="angel">
-									方向盘转角
+									投放时间
+								</div>
+								<div class="filter-title center" data="exception">
+									故障
 								</div>
 								<div class="filter-go center">
 									筛选
@@ -83,18 +102,39 @@
 
 								<div class="filter-content">
  									<div class="speed">
-										速度从<input type="number" name="min-speed">&nbsp;&nbsp;M/S
-										至
-										<input type="number" name="max-speed">&nbsp;&nbsp;M/S
+										省:<select id="s_province" name="s_province"></select>  
+    									市:<select id="s_city" name="s_city" ></select>  
+    									县:<select id="s_county" name="s_county"></select>
 									</div>
 									<div class="size">
-										大小:<select>
-											<option>[长]3M*[宽]3M*[高]3M</option>
-											<option>[长]3M*[宽]3M*[高]3M</option>
-											<option>[长]3M*[宽]3M*[高]3M</option>
-										</select>
+										车型:<select>
+												<option>[长]3M*[宽]3M*[高]3M</option>
+												<option>[长]3M*[宽]3M*[高]3M</option>
+												<option>[长]3M*[宽]3M*[高]3M</option>
+											</select>
+										品牌:<select>
+												<option>[长]3M*[宽]3M*[高]3M</option>
+												<option>[长]3M*[宽]3M*[高]3M</option>
+												<option>[长]3M*[宽]3M*[高]3M</option>
+											</select>
+										型号:<select>
+												<option>[长]3M*[宽]3M*[高]3M</option>
+												<option>[长]3M*[宽]3M*[高]3M</option>
+												<option>[长]3M*[宽]3M*[高]3M</option>
+											</select>
 									</div>
 									<div class="brake">
+										名称:<input type="" name="">
+										编号:<input type="" name="">
+									</div>
+
+									<div class="angel">
+										从<input type="date" name="">&nbsp;&nbsp;
+										至
+										<input type="date" name="">&nbsp;&nbsp;
+									</div>
+
+									<div class="exception">
 										<div>
 											<input type="checkbox" name="brake" value="BrakePedalStatus" id="BrakePedalStatus" ><label for="BrakePedalStatus">BrakePedalStatus</label><br>
          									<input type="checkbox" name="brake" value="BrakeAppliedStatus" id="BrakeAppliedStatus" ><label for="BrakeAppliedStatus">BrakeAppliedStatus</label>
@@ -108,14 +148,8 @@
         									<input type="checkbox" name="brake" value="BrakeBoostApplied" id="BrakeBoostApplied" ><label for="BrakeBoostApplied">BrakeBoostApplied</label>
         								</div>
         								<div>
-        								<input type="checkbox" name="brake" value="AuxiliaryBrakeStatus" id="AuxiliaryBrakeStatus" ><label for="AuxiliaryBrakeStatus">AuxiliaryBrakeStatus</label>
+        									<input type="checkbox" name="brake" value="AuxiliaryBrakeStatus" id="AuxiliaryBrakeStatus" ><label for="AuxiliaryBrakeStatus">AuxiliaryBrakeStatus</label>
         								</div>
-									</div>
-
-									<div class="angel">
-										方向盘转角从<input type="number" name="min-speed">&nbsp;&nbsp;度
-										至
-										<input type="number" name="max-speed">&nbsp;&nbsp;度
 									</div>
 								</div>
 							</div>
@@ -330,7 +364,10 @@
 <!-- Main -->
 <script type="text/javascript" src="js/main.js"></script>
 
+<script class="resources library" src="js/area.js" type="text/javascript"></script>
+
 <script type="text/javascript">
+	_init_area();
 
 	function change_height(){
 		var width=$("body").width();
