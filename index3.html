@@ -34,7 +34,7 @@
 							<li class="col-sm-12 hidden-xs" style="height: 80px;line-height:80px; font-size: 1.2em;letter-spacing:3px">
 								<i class="fa fa-navicon" style="font-size: 1.4em;"></i>
 							</li>
-							<li class="col-sm-12 col-xs-3">
+							<li class="col-sm-12 col-xs-3" onclick="javascript:window.location.href='index2.html'">
 								<i class="fa fa-list-alt"></i>车辆概况
 								<span class="green">36</span>
 								<span class="orange" style="margin-left: 45px;">7</span>
@@ -64,7 +64,7 @@
 
 						<div class="row">
 							<div class="filter">
-								<div class="filter-title center">
+								<div class="filter-title center" style="background-color: #f4f3f2;">
 										条件排序
 								</div>
 								<div class="filter-title center" data="speed">
@@ -98,19 +98,19 @@
 									</div>
 									<div class="brake">
 										<div>
-										<input type="checkbox" name="brake" value="BrakePedalStatus" >BrakePedalStatus<br>
-         								<input type="checkbox" name="brake" value="BrakePedalStatus" >BrakeAppliedStatus
+											<input type="checkbox" name="brake" value="BrakePedalStatus" id="BrakePedalStatus" ><label for="BrakePedalStatus">BrakePedalStatus</label><br>
+         									<input type="checkbox" name="brake" value="BrakeAppliedStatus" id="BrakeAppliedStatus" ><label for="BrakeAppliedStatus">BrakeAppliedStatus</label>
          								</div>
          								<div>
-        								<input type="checkbox" name="brake" value="BrakePedalStatus" >TractionControlStatus<br>
-        								<input type="checkbox" name="brake" value="BrakePedalStatus" >AntiLockBrakeStatus
+        									<input type="checkbox" name="brake" value="TractionControlStatus" id="TractionControlStatus" ><label for="TractionControlStatus">TractionControlStatus</label><br>
+        									<input type="checkbox" name="brake" value="AntiLockBrakeStatus" id="AntiLockBrakeStatus" ><label for="AntiLockBrakeStatus">AntiLockBrakeStatus</label>
         								</div>
         								<div>
-        								<input type="checkbox" name="brake" value="BrakePedalStatus" >StabilityControlStatus<br>
-        								<input type="checkbox" name="brake" value="BrakePedalStatus" >BrakeBoostApplied
+        									<input type="checkbox" name="brake" value="StabilityControlStatus" id="StabilityControlStatus" ><label for="StabilityControlStatus">StabilityControlStatus</label><br>
+        									<input type="checkbox" name="brake" value="BrakeBoostApplied" id="BrakeBoostApplied" ><label for="BrakeBoostApplied">BrakeBoostApplied</label>
         								</div>
         								<div>
-        								<input type="checkbox" name="brake" value="BrakePedalStatus" >AuxiliaryBrakeStatus
+        								<input type="checkbox" name="brake" value="AuxiliaryBrakeStatus" id="AuxiliaryBrakeStatus" ><label for="AuxiliaryBrakeStatus">AuxiliaryBrakeStatus</label>
         								</div>
 									</div>
 
@@ -140,7 +140,7 @@
 <!-- Main -->
 <script type="text/javascript" src="js/main.js"></script>
 
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=qio515CKm1tRPdzRBnpfxuWo23KBiQXr"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=3VqNyjz7iBM965mIrK7OTmA8u6V9pTTZ"></script>
 
 
 
@@ -210,6 +210,7 @@
 	var map = new BMap.Map("allmap");
 	var point = new BMap.Point(116.404, 39.915);
 	map.centerAndZoom(point, 15);
+	map.enableScrollWheelZoom();
 	// 编写自定义函数,创建标注
 	function addMarker(point){
 	  var marker = new BMap.Marker(point);

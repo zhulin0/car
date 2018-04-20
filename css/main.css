@@ -42,11 +42,13 @@ input{
 	overflow: hidden;
 	display: inline-block;
 	width: 80px;
+	cursor: pointer;
 }
 .header-right .user-picture{
 	margin-right: 10px;
 	border-radius: 50%;
 	width: 50px;
+	cursor: pointer;
 }
 
 .header-right a{
