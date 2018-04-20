@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>智能车</title>
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<!-- Main -->
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<!-- Font-awesome -->
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<!-- Animate -->
+<link rel="stylesheet" type="text/css" href="css/animate.css">
+
+
+</head>
+
+<body style="">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="row header" style="background-color: #171717;display: block;">
+					<div class="logo col-sm-8 col-sm-offset-1 col-xs-6">智能车云平台</div>
+					<div class="header-right">
+						<img src="image/avatar.png" class="user-picture">
+						<span class="user-name">admin</span>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-2 col-md-2 col-xs-12 menu" style="height:80px;min-width: 130px;padding: 0; background-color: rgba(37,37,37,1);">
+						<ul style="list-style: none;">
+							<li class="col-sm-12 hidden-xs" style="height: 80px;line-height:80px; font-size: 1.2em;letter-spacing:3px">
+								<i class="fa fa-navicon" style="font-size: 1.4em;"></i>
+							</li>
+							<li class="col-sm-12 col-xs-3">
+								<i class="fa fa-list-alt"></i>车辆概况
+								<span class="green">36</span>
+								<span class="orange" style="margin-left: 45px;">7</span>
+							</li>
+							<li class="col-sm-12 col-xs-3" style="background-color: #EAEDEB;color: #000;">
+								<i class="fa fa-map"></i>车辆地图
+							</li>
+							<li class="col-sm-12 col-xs-3">
+								<i class="fa fa-list-ol"></i>车辆日志
+							</li>
+							<li class="col-sm-12 col-xs-3">
+								<i class="fa fa-warning"></i>车辆异常
+								<span class="red">12</span>
+							</li>
+						</ul>
+						<div class="menu_after"></div>
+					</div>
+					<div class="col-sm-10 control" style="background-color: #f4f3f2;">
+						<div class="row general center">
+							<div class="col-md-1 online-title is-online">在线</div>
+							<div class="col-md-1 offline-title">离线</div>
+							<div class="search-online">
+								<input type="text" name="search" placeholder="搜索关键字">
+								<i class="fa fa-search" style="position: absolute;right: 15px; top: 8px; color: #ddd;font-size: 1.5em;"></i>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="filter">
+								<div class="filter-title center">
+										条件排序
+								</div>
+								<div class="filter-title center" data="speed">
+									车速
+								</div>
+								<div  class="filter-title center" data="size">
+									车辆大小
+								</div>
+								<div class="filter-title center" data="brake">
+									刹车系统
+								</div>
+								<div class="filter-title center" data="angel">
+									方向盘转角
+								</div>
+								<div class="filter-go center">
+									筛选
+								</div>
+
+								<div class="filter-content">
+ 									<div class="speed">
+										速度从<input type="number" name="min-speed">&nbsp;&nbsp;M/S
+										至
+										<input type="number" name="max-speed">&nbsp;&nbsp;M/S
+									</div>
+									<div class="size">
+										大小:<select>
+											<option>[长]3M*[宽]3M*[高]3M</option>
+											<option>[长]3M*[宽]3M*[高]3M</option>
+											<option>[长]3M*[宽]3M*[高]3M</option>
+										</select>
+									</div>
+									<div class="brake">
+										<div>
+										<input type="checkbox" name="brake" value="BrakePedalStatus" >BrakePedalStatus<br>
+         								<input type="checkbox" name="brake" value="BrakePedalStatus" >BrakeAppliedStatus
+         								</div>
+         								<div>
+        								<input type="checkbox" name="brake" value="BrakePedalStatus" >TractionControlStatus<br>
+        								<input type="checkbox" name="brake" value="BrakePedalStatus" >AntiLockBrakeStatus
+        								</div>
+        								<div>
+        								<input type="checkbox" name="brake" value="BrakePedalStatus" >StabilityControlStatus<br>
+        								<input type="checkbox" name="brake" value="BrakePedalStatus" >BrakeBoostApplied
+        								</div>
+        								<div>
+        								<input type="checkbox" name="brake" value="BrakePedalStatus" >AuxiliaryBrakeStatus
+        								</div>
+									</div>
+
+									<div class="angel">
+										方向盘转角从<input type="number" name="min-speed">&nbsp;&nbsp;度
+										至
+										<input type="number" name="max-speed">&nbsp;&nbsp;度
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row map-content" style="height: 766px;">
+								<div id="allmap" style="height: 100%;"></div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<!-- JQuery -->
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<!-- Waypoints -->
+<script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
+<!-- Main -->
+<script type="text/javascript" src="js/main.js"></script>
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=3VqNyjz7iBM965mIrK7OTmA8u6V9pTTZ"></script>
+
+
+
+<script type="text/javascript">
+
+	function change_height(){
+		var width=$("body").width();
+		if(width>=766){
+			var height=$(window).height();
+
+			$(".map-content").height(function(n,c){
+				return height-81-84-56;
+			})
+			var header_height=$(".header").height();
+			$(".menu").height(function(n,c){
+				return height-header_height;
+			});
+			$(".control").height(function(n,c){
+				return height-header_height;
+			});
+
+			$('.menu_after').css({
+					height:function(n,c){
+					return height-header_height-100;
+				},
+					left:function(n,c){
+						var menu_width=$(".menu").width();
+					return menu_width;
+				},
+					display:function(n,c){
+						return 'block';
+					}
+			});
+		}else{
+			$(".menu").height(60);
+			$(".control").css('height',"auto");
+			$(".menu").css("max-width","100%");
+			$(".menu").css("min-height","0px");
+			$('.menu_after').css({"display":"none"});
+		}
+	}
+	change_height();
+	$(window).resize(function(){
+			change_height();
+	});
+
+	$(".online-title").on('click',function(){
+		$(".offline-title").removeClass("is-online");
+		$(".online-title").addClass("is-online");
+	});
+	$(".offline-title").on('click',function(){
+		$(".online-title").removeClass("is-online");
+		$(".offline-title").addClass("is-online");
+	})
+
+	$(".filter-title").on("mouseover",function(){
+		$(".filter-content").children().css("display","none");
+		var x=$(this).attr("data");
+		$("."+x).css("display","block");
+
+	})
+	$(".filter-title").on("mouseout",function(){
+		var x=$(this).attr("data");
+	});
+
+	// 百度地图API功能
+	var map = new BMap.Map("allmap");
+	var point = new BMap.Point(116.404, 39.915);
+	map.centerAndZoom(point, 15);
+	// 编写自定义函数,创建标注
+	function addMarker(point){
+	  var marker = new BMap.Marker(point);
+	  map.addOverlay(marker);
+	}
+	// 随机向地图添加25个标注
+	var bounds = map.getBounds();
+	var sw = bounds.getSouthWest();
+	var ne = bounds.getNorthEast();
+	var lngSpan = Math.abs(sw.lng - ne.lng);
+	var latSpan = Math.abs(ne.lat - sw.lat);
+	for (var i = 0; i < 25; i ++) {
+		var point = new BMap.Point(sw.lng + lngSpan * (Math.random() * 0.7), ne.lat - latSpan * (Math.random() * 0.7));
+		addMarker(point);
+	}
+
+</script>
+</html>

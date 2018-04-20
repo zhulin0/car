@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>智能车</title>
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<!-- Main -->
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<!-- Font-awesome -->
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<!-- Animate -->
+<link rel="stylesheet" type="text/css" href="css/animate.css">
+</head>
+
+<body style="">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="row header" style="background-color: #171717;display: block;">
+					<div class="logo col-sm-8 col-sm-offset-1 col-xs-6">智能车云平台</div>
+					<div class="header-right">
+						<img src="image/avatar.png" class="user-picture">
+						<span class="user-name">admin</span>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-2 col-md-2 col-xs-12 menu" style="height:80px;min-width: 130px;padding: 0; background-color: rgba(37,37,37,1);">
+						<ul style="list-style: none;">
+							<li class="col-sm-12 hidden-xs" style="height: 80px;line-height:80px; font-size: 1.2em;letter-spacing:3px">
+								<i class="fa fa-navicon" style="font-size: 1.4em;"></i>
+							</li>
+							<li class="col-sm-12 col-xs-3" style="background-color: #EAEDEB;color: #000;">
+								<i class="fa fa-list-alt"></i>车辆概况
+								<span class="green">36</span>
+								<span class="orange" style="margin-left: 45px;">7</span>
+							</li>
+							<li class="col-sm-12 col-xs-3">
+								<i class="fa fa-map"></i>车辆地图
+							</li>
+							<li class="col-sm-12 col-xs-3">
+								<i class="fa fa-list-ol"></i>车辆日志
+							</li>
+							<li class="col-sm-12 col-xs-3">
+								<i class="fa fa-warning"></i>车辆异常
+								<span class="red">12</span>
+							</li>
+						</ul>
+						<div class="menu_after"></div>
+					</div>
+					<div class="col-sm-10 control" style="background-color: #f4f3f2;">
+						<div class="row general center">
+							<div class="col-md-1 online-title is-online">在线</div>
+							<div class="col-md-1 offline-title">离线</div>
+							<div class="search-online">
+								<input type="text" name="search" placeholder="搜索关键字">
+								<i class="fa fa-search" style="position: absolute;right: 15px; top: 8px; color: #ddd;font-size: 1.5em;"></i>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="filter">
+								<div class="filter-title center">
+										条件排序
+								</div>
+								<div class="filter-title center" data="speed">
+									车速
+								</div>
+								<div  class="filter-title center" data="size">
+									车辆大小
+								</div>
+								<div class="filter-title center" data="brake">
+									刹车系统
+								</div>
+								<div class="filter-title center" data="angel">
+									方向盘转角
+								</div>
+								<div class="filter-go center">
+									筛选
+								</div>
+
+								<div class="filter-content">
+ 									<div class="speed">
+										速度从<input type="number" name="min-speed">&nbsp;&nbsp;M/S
+										至
+										<input type="number" name="max-speed">&nbsp;&nbsp;M/S
+									</div>
+									<div class="size">
+										大小:<select>
+											<option>[长]3M*[宽]3M*[高]3M</option>
+											<option>[长]3M*[宽]3M*[高]3M</option>
+											<option>[长]3M*[宽]3M*[高]3M</option>
+										</select>
+									</div>
+									<div class="brake">
+										<div>
+										<input type="checkbox" name="brake" value="BrakePedalStatus" >BrakePedalStatus<br>
+         								<input type="checkbox" name="brake" value="BrakePedalStatus" >BrakeAppliedStatus
+         								</div>
+         								<div>
+        								<input type="checkbox" name="brake" value="BrakePedalStatus" >TractionControlStatus<br>
+        								<input type="checkbox" name="brake" value="BrakePedalStatus" >AntiLockBrakeStatus
+        								</div>
+        								<div>
+        								<input type="checkbox" name="brake" value="BrakePedalStatus" >StabilityControlStatus<br>
+        								<input type="checkbox" name="brake" value="BrakePedalStatus" >BrakeBoostApplied
+        								</div>
+        								<div>
+        								<input type="checkbox" name="brake" value="BrakePedalStatus" >AuxiliaryBrakeStatus
+        								</div>
+									</div>
+
+									<div class="angel">
+										方向盘转角从<input type="number" name="min-speed">&nbsp;&nbsp;度
+										至
+										<input type="number" name="max-speed">&nbsp;&nbsp;度
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row car-content" style="padding: 20px;overflow: auto;">
+
+							<div class="col-sm-6 car">
+								<div>
+								<div class="col-sm-4 car-left">
+									<div class="car-board">
+										<img src="image/car.png">
+									</div>
+									<div class="car-brake center">
+										<div>
+											<i class="fa fa-circle color-green"></i>BPS
+											<i class="fa fa-circle color-red"></i>BAS
+											<i class="fa fa-circle color-green"></i>TCS<br/>
+											<i class="fa fa-circle color-orange"></i>ABS
+											<i class="fa fa-circle color-green"></i>SCS 
+											<i class="fa fa-circle color-orange"></i>BBA <br/>
+											<i class="fa fa-circle color-green"></i>ABS
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-8 car-right">
+									<div class="car-light">
+										<div style="float: left;">
+											<i class="fa fa-lightbulb-o"></i>
+										</div>
+										<div style="margin-left: 46px;">
+											<i class="fa fa-circle color-green"></i><span title="LowBeamHeadlights">LBHL</span>
+											<i class="fa fa-circle color-green"></i><span title="HighBeamHeadlights">LTS</span>
+											<i class="fa fa-circle color-red"></i><span title="LeftTurnSignal">RTS</span>
+											<i class="fa fa-circle color-green"></i><span title="RightTurnSignal">HS</span><br/>
+											<i class="fa fa-circle color-green"></i><span title="HazardSignal">ALC</span>
+											<i class="fa fa-circle color-orange"></i><span title="AutomaticLightControl">HBHL</span>
+											<i class="fa fa-circle color-green"></i><span title="DaytimeRunningLights">DRL</span>
+											<i class="fa fa-circle color-orange"></i><span title="FogLight">FL</span>
+											<i class="fa fa-circle color-green"></i><span title="ParkingLights">PL</span>
+										</div>
+									</div>
+									<div class="car-information">
+										<span class="car-information-item">车辆速度:</span><span class="car-information-value">12.80&nbsp;M/S</span><br/>
+
+										<span class="car-information-item">车辆大小:</span><span class="car-information-value">3M*3M*3M</span><br/>
+
+										<span class="car-information-item">四轴加速度:</span><span class="car-information-value">3&nbsp;M/S<span style="vertical-align: 6px;font-size: 0.4em;">2</span></span><span class="car-information-value">3&nbsp;M/S<span style="vertical-align: 6px;font-size: 0.4em;">2</span></span><span class="car-information-value">3&nbsp;M/S<span style="vertical-align: 6px;font-size: 0.4em;">2</span></span><span class="car-information-value">3&nbsp;M/S<span style="vertical-align: 6px;font-size: 0.4em;">2</span></span><br/>
+
+										<span class="car-information-item">方向盘转角:</span><span class="car-information-value"></span><span class="car-information-value">45</span>度<br/>
+
+										<span class="car-information-item">车速精度:</span><span class="car-information-value"></span><span class="car-information-value">90</span>%<br/>
+
+										<span class="car-information-item">航向精度:</span><span class="car-information-value"></span><span class="car-information-value">90</span>%<br/>
+
+										<span class="car-information-item">方向盘精度:</span><span class="car-information-value"></span><span class="car-information-value">90</span>%<br/>
+
+									</div>
+									<div class="car-button">
+										<button>车辆详情</button>
+										<button>历史数据</button>
+										<button>当前位置</button>
+										<button>轨迹追踪</button>
+
+									</div>
+								</div>
+
+								</div>
+							</div>
+							<div class="col-sm-6 car">
+								<div>
+								<div class="col-sm-4 car-left">
+									<div class="car-board">
+										<img src="image/car.png">
+									</div>
+									<div class="car-brake center">
+										<div>
+											<i class="fa fa-circle color-green"></i>BPS
+											<i class="fa fa-circle color-red"></i>BAS
+											<i class="fa fa-circle color-green"></i>TCS<br/>
+											<i class="fa fa-circle color-orange"></i>ABS
+											<i class="fa fa-circle color-green"></i>SCS 
+											<i class="fa fa-circle color-orange"></i>BBA <br/>
+											<i class="fa fa-circle color-green"></i>ABS
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-8 car-right">
+									<div class="car-light">
+										<div style="float: left;">
+											<i class="fa fa-lightbulb-o"></i>
+										</div>
+										<div style="margin-left: 46px;">
+											<i class="fa fa-circle color-green"></i><span title="LowBeamHeadlights">LBHL</span>
+											<i class="fa fa-circle color-green"></i><span title="HighBeamHeadlights">LTS</span>
+											<i class="fa fa-circle color-red"></i><span title="LeftTurnSignal">RTS</span>
+											<i class="fa fa-circle color-green"></i><span title="RightTurnSignal">HS</span><br/>
+											<i class="fa fa-circle color-green"></i><span title="HazardSignal">ALC</span>
+											<i class="fa fa-circle color-orange"></i><span title="AutomaticLightControl">HBHL</span>
+											<i class="fa fa-circle color-green"></i><span title="DaytimeRunningLights">DRL</span>
+											<i class="fa fa-circle color-orange"></i><span title="FogLight">FL</span>
+											<i class="fa fa-circle color-green"></i><span title="ParkingLights">PL</span>
+										</div>
+									</div>
+									<div class="car-information">
+										<span class="car-information-item">车辆速度:</span><span class="car-information-value">12.80&nbsp;M/S</span><br/>
+
+										<span class="car-information-item">车辆大小:</span><span class="car-information-value">3M*3M*3M</span><br/>
+
+										<span class="car-information-item">四轴加速度:</span><span class="car-information-value">3&nbsp;M/S<span style="vertical-align: 6px;font-size: 0.4em;">2</span></span><span class="car-information-value">3&nbsp;M/S<span style="vertical-align: 6px;font-size: 0.4em;">2</span></span><span class="car-information-value">3&nbsp;M/S<span style="vertical-align: 6px;font-size: 0.4em;">2</span></span><span class="car-information-value">3&nbsp;M/S<span style="vertical-align: 6px;font-size: 0.4em;">2</span></span><br/>
+
+										<span class="car-information-item">方向盘转角:</span><span class="car-information-value"></span><span class="car-information-value">45</span>度<br/>
+
+										<span class="car-information-item">车速精度:</span><span class="car-information-value"></span><span class="car-information-value">90</span>%<br/>
+
+										<span class="car-information-item">航向精度:</span><span class="car-information-value"></span><span class="car-information-value">90</span>%<br/>
+
+										<span class="car-information-item">方向盘精度:</span><span class="car-information-value"></span><span class="car-information-value">90</span>%<br/>
+
+									</div>
+									<div class="car-button">
+										<button>车辆详情</button>
+										<button>历史数据</button>
+										<button>当前位置</button>
+										<button>轨迹追踪</button>
+
+									</div>
+								</div>
+
+								</div>
+							</div>
+
+
+							<div class="col-sm-6 car">
+								<div>
+								<div class="col-sm-4 car-left">
+									<div class="car-board">
+										<img src="image/car.png">
+									</div>
+									<div class="car-brake center">
+										<div>
+											<i class="fa fa-circle color-green"></i>BPS
+											<i class="fa fa-circle color-red"></i>BAS
+											<i class="fa fa-circle color-green"></i>TCS<br/>
+											<i class="fa fa-circle color-orange"></i>ABS
+											<i class="fa fa-circle color-green"></i>SCS 
+											<i class="fa fa-circle color-orange"></i>BBA <br/>
+											<i class="fa fa-circle color-green"></i>ABS
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-8 car-right">
+									<div class="car-light">
+										<div style="float: left;">
+											<i class="fa fa-lightbulb-o"></i>
+										</div>
+										<div style="margin-left: 46px;">
+											<i class="fa fa-circle color-green"></i><span title="LowBeamHeadlights">LBHL</span>
+											<i class="fa fa-circle color-green"></i><span title="HighBeamHeadlights">LTS</span>
+											<i class="fa fa-circle color-red"></i><span title="LeftTurnSignal">RTS</span>
+											<i class="fa fa-circle color-green"></i><span title="RightTurnSignal">HS</span><br/>
+											<i class="fa fa-circle color-green"></i><span title="HazardSignal">ALC</span>
+											<i class="fa fa-circle color-orange"></i><span title="AutomaticLightControl">HBHL</span>
+											<i class="fa fa-circle color-green"></i><span title="DaytimeRunningLights">DRL</span>
+											<i class="fa fa-circle color-orange"></i><span title="FogLight">FL</span>
+											<i class="fa fa-circle color-green"></i><span title="ParkingLights">PL</span>
+										</div>
+									</div>
+									<div class="car-information">
+										<span class="car-information-item">车辆速度:</span><span class="car-information-value">12.80&nbsp;M/S</span><br/>
+
+										<span class="car-information-item">车辆大小:</span><span class="car-information-value">3M*3M*3M</span><br/>
+
+										<span class="car-information-item">四轴加速度:</span><span class="car-information-value">3&nbsp;M/S<span style="vertical-align: 6px;font-size: 0.4em;">2</span></span><span class="car-information-value">3&nbsp;M/S<span style="vertical-align: 6px;font-size: 0.4em;">2</span></span><span class="car-information-value">3&nbsp;M/S<span style="vertical-align: 6px;font-size: 0.4em;">2</span></span><span class="car-information-value">3&nbsp;M/S<span style="vertical-align: 6px;font-size: 0.4em;">2</span></span><br/>
+
+										<span class="car-information-item">方向盘转角:</span><span class="car-information-value"></span><span class="car-information-value">45</span>度<br/>
+
+										<span class="car-information-item">车速精度:</span><span class="car-information-value"></span><span class="car-information-value">90</span>%<br/>
+
+										<span class="car-information-item">航向精度:</span><span class="car-information-value"></span><span class="car-information-value">90</span>%<br/>
+
+										<span class="car-information-item">方向盘精度:</span><span class="car-information-value"></span><span class="car-information-value">90</span>%<br/>
+
+									</div>
+									<div class="car-button">
+										<button>车辆详情</button>
+										<button>历史数据</button>
+										<button>当前位置</button>
+										<button>轨迹追踪</button>
+
+									</div>
+								</div>
+
+								</div>
+							</div>
+
+
+
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<!-- JQuery -->
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<!-- Waypoints -->
+<script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
+<!-- Main -->
+<script type="text/javascript" src="js/main.js"></script>
+
+<script type="text/javascript">
+
+	function change_height(){
+		var width=$("body").width();
+		if(width>=766){
+			var height=$(window).height();
+
+			$(".car-content").height(function(n,c){
+				return height-81-84-56-40;
+			})
+			var header_height=$(".header").height();
+			$(".menu").height(function(n,c){
+				return height-header_height;
+			});
+			$(".control").height(function(n,c){
+				return height-header_height;
+			});
+
+			$('.menu_after').css({
+					height:function(n,c){
+					return height-header_height-100;
+				},
+					left:function(n,c){
+						var menu_width=$(".menu").width();
+					return menu_width;
+				},
+					display:function(n,c){
+						return 'block';
+					}
+			});
+		}else{
+			$(".menu").height(60);
+			$(".control").css('height',"auto");
+			$(".menu").css("max-width","100%");
+			$(".menu").css("min-height","0px");
+			$('.menu_after').css({"display":"none"});
+		}
+	}
+	change_height();
+	$(window).resize(function(){
+			change_height();
+	});
+
+	$(".online-title").on('click',function(){
+		$(".offline-title").removeClass("is-online");
+		$(".online-title").addClass("is-online");
+	});
+	$(".offline-title").on('click',function(){
+		$(".online-title").removeClass("is-online");
+		$(".offline-title").addClass("is-online");
+	})
+
+	$(".filter-title").on("mouseover",function(){
+		$(".filter-content").children().css("display","none");
+		var x=$(this).attr("data");
+		$("."+x).css("display","block");
+
+	})
+	$(".filter-title").on("mouseout",function(){
+		var x=$(this).attr("data");
+	})
+
+</script>
+</html>
