@@ -16,20 +16,22 @@
 <body style="background: rgb(55,61,65);">
 	<div class="container">
 		<div class="row">		
-			<div class="col-sm-12" style="background: url('image/top2.jpg');display: inline-block;">
+			<div class="col-sm-12" style="background: url('image/top2.jpg');background-size:cover;display: inline-block;background-position: top center;">
 				<div class="row header" style="border-bottom: 1px solid #555;">
 					<div class="logo col-sm-7 col-sm-offset-1 col-xs-6">智能车云平台</div>
-					<div class="col-sm-3 col-xs-6 header-right">
-						<p><a>注册</a></p>
+					<div class="header-right">
 						<p><a>首页</a></p>
+						<p><a>注册</a></p>
 					</div>
 				</div>
 				<div class="row login animate-box">
-					<div class="col-sm-7 login_left center" data-animate-effect="fadeIn">
+					<div class="col-sm-12 login_left center" data-animate-effect="fadeIn">
 						<p>智能车云平台</p>
 						<p>以最简单的方式，最低廉的成本，帮助现有设备制造商向物联网转型，物联网厂商设备智能化转型</p>
 					</div>
-					<div class="col-md-4 col-md-offset-1 col-sm-5 login_right animate-box" data-animate-effect="fadeInDown">
+				</div>
+				<div class="row login animate-box">
+					<div class="col-sm-12 login_right animate-box" data-animate-effect="fadeInDown">
 						<p class="center">密码登陆</p>
 						<div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12 input_div">
 							<div class="row center">
@@ -74,7 +76,9 @@
 <script type="text/javascript" src="js/main.js"></script>
 
 <script type="text/javascript">
-	$("input[type='button']").on("click",func)
+	$("input[type='button']").on("click",function(){
+		window.location.href="index2.html";
+	})
 </script>
 
 </html>

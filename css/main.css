@@ -29,12 +29,19 @@ input{
 
 .header-right>p{
 	margin-right: 30px;
-	vertical-align: middle;
+	margin-top: 13px;
+	float: left;
 }
 
 .header-right span{
 	margin-right: 30px;
 	color:#fff;
+	vertical-align: middle;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	display: inline-block;
+	width: 80px;
 }
 .header-right .user-picture{
 	margin-right: 10px;
@@ -51,27 +58,29 @@ input{
 }
 
 .login{
-	margin: 60px 5px 60px 5px;
+	margin: 20px 5px 60px 5px;
 	color: #fff;
 }
 
 .login_left{
-	height: 300px;
+	height: 80px;
 }
 
-.login_left>p:first-child{
-	margin-top: 200px;
+.login_left p:first-child{
+	margin-top: 20px;
 	font-size: 2.5em;
 }
 
 .login_right{
 	background-color: rgba(95,95,95,0.65);
+	margin:20px auto;
+	float: none;
 	height: 550px;
 	border-radius: 5px;
 	color: #000;
 }
 
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 776px) {
   .login_right{
 	max-width: 480px;
 }
@@ -97,6 +106,7 @@ input{
 	font-size: 1.2em;
 	margin-bottom: 5px ;
 }
+
 
 
 .input_div{
@@ -259,23 +269,26 @@ a:hover{
 	position: relative;
 	float: right;
 	margin-right: 35px;
-	width: 200px;
-	transition: width .5s;
-}
-
-.search-online:hover{
 	width: 250px;
 	transition: width .5s;
 }
 
 .search-online input{
+	float: right;
 	height: 38px;
-	width: 100%;
+	width: 80%;
 	border-radius: 30px;
 	font-size: 1.1em;
 	padding: 0 35px 0 10px;
 	border: 1px solid #ddd;
+	transition: width .5s;
 }
+
+.search-online input:focus{
+	width: 100%;
+	transition: width .5s;
+}
+
 .filter{
 	height: 56px;
 	position: relative;
@@ -341,18 +354,44 @@ a:hover{
 .filter-content .brake{
 	font-size: 1.3em;
 	margin:10px 0;
+	padding-top: 8px;
 }
 
 .filter-content .brake>div{
 	float: left;
-	margin-right: 10px;
+	margin-right: 15px;
 	margin-bottom: 10px;
 }
 
 .filter-content .brake input{
 	margin-right: 5px;
-	zoom:150%;
 	vertical-align: -2px;
+	display: none;
+}
+
+.filter-content .brake label{
+	font-weight: 500;
+	font-size: .9em;
+    cursor: pointer;
+}
+
+.filter-content .brake input[type="checkbox"] + label::before {
+    content: "\a0";  /*不换行空格*/
+    display: inline-block;
+    vertical-align: .2em;
+	font-weight: bold;
+    width: .8em;
+    height: .8em;
+    margin-right: .3em;
+    border-radius: .2em;
+    background-color: silver;
+    text-indent: .15em;
+    line-height: .65;  /*行高不加单位，子元素将继承数字乘以自身字体尺寸而非父元素行高*/
+}
+
+.filter-content .brake input[type="checkbox"]:checked + label::before {
+    content: "\2713";
+    background-color: yellowgreen;
 }
 
 .filter-content .size option{
@@ -376,6 +415,23 @@ a:hover{
 	margin: 5px;
 	overflow: hidden;
 	background-color: #fff;
+}
+
+.car-content::-webkit-scrollbar {     
+	/* 血槽宽度 */   
+	width: 8px; height: 8px; 
+	} 
+
+.car-content::-webkit-scrollbar-thumb {     
+	/* 拖动条 */   
+	background-color: rgba(0,0,0,.3);   
+	border-radius: 6px; 
+	} 
+
+.car-content::-webkit-scrollbar-track {     
+	/* 背景槽 */   
+	background-color: #ddd;   
+	border-radius: 6px; 
 }
 
 .car-left{
