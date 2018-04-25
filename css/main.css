@@ -314,11 +314,12 @@ a:hover{
 	font-weight: 600;
 }
 .filter-title:hover~.filter-content{
-	display: block;
+	visibility: visible;
+	transition: all 0s;
 }
 
 .filter-content:hover{
-	display: block;
+	visibility: visible;
 }
 
 .filter-content{
@@ -328,8 +329,9 @@ a:hover{
 	left: 0;
 	right: 0;
 	padding-left: 5%;
-	display: none;
+	visibility: hidden;
 	z-index: 10;
+	transition: all 0s .5s;
 }
 
 .filter-content .speed,.filter-content .angel,.filter-content .size,.filter-content .brake{

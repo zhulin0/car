@@ -296,7 +296,7 @@
 						<div class="row user-add">
 							<div>
 								<div class="user-in col-sm-12 user-id">
-									<span>车队名:</span><input type="text" name="">
+									<span>车队名:</span><input type="text" name="" style="width: 210px">
 								</div>
 								<div class="user-in col-sm-12 user-email">
 									<span>添加车辆:</span>
@@ -416,6 +416,7 @@
 	})
 	var car_team=new Array();
 
+
 	$(".add-car").change(function(){
 		var x=$(this).val();
 		if(!contains(car_team,x)){
@@ -423,12 +424,12 @@
 			$(".the-car").append("<div class='"+x+"'>"+x+"<i class='fa fa-remove' onclick='remove(\""+x+"\")'></i></div>")
 		};
 		choose_leader();
+		$(this).children('option:eq(0)').prop('selected','selected');
 	})
 
 	function remove(x){
 		removeByValue(car_team,x);
 		$("."+x).remove();
-		console.log($(this).parent());
 		choose_leader();
 	}
 
