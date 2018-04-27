@@ -244,6 +244,7 @@
 	var point = new BMap.Point(116.404, 39.915);
 	map.centerAndZoom(point, 15);
 	map.enableScrollWheelZoom();
+	map.clearOverlays();  
 	// 编写自定义函数,创建标注
 	function addMarker(point){
 	  var marker = new BMap.Marker(point);
@@ -256,7 +257,7 @@
 	var ne = bounds.getNorthEast();
 	var lngSpan = Math.abs(sw.lng - ne.lng);
 	var latSpan = Math.abs(ne.lat - sw.lat);
-	for (var i = 0; i < 25; i ++) {
+	for (var i = 0; i < 10; i ++) {
 		var point = new BMap.Point(sw.lng + lngSpan * (Math.random() * 0.7), ne.lat - latSpan * (Math.random() * 0.7));
 		addMarker(point);
 	}
@@ -268,8 +269,7 @@
 	var myIcon = new BMap.Icon("http://lbsyun.baidu.com/jsdemo/img/Mario.png", new BMap.Size(32, 70), {imageOffset: new BMap.Size(0, 0)});
 	function initLine(){
 		bounds = new Array();
-		linesPoints = new Array();
-		map.clearOverlays();                                                    // 清空覆盖物
+		linesPoints = new Array();                                                  // 清空覆盖物
 		var driving3 = new BMap.DrivingRoute(map,{onSearchComplete:drawLine});  // 驾车实例,并设置回调
 			driving3.search(spoi1, epoi); 
 			                                      // 搜索一条线路
@@ -284,8 +284,9 @@
 	function run(){
 		linesPoint.push(linesPoints[0][0]);
 		linesPoint.push(linesPoints[0][1]);
-
+		map.centerAndZoom(linesPoint[0],15);
 		var carMk = new BMap.Marker(linesPoint[0],{icon:myIcon});
+		// carMk.setAnimation(BMAP_ANIMATION_BOUNCE);//跳动的动画
 		map.addOverlay(carMk);
 		carMk.setPosition(linesPoint[0]);
 
@@ -305,13 +306,23 @@
 						var x= degree(new_lat,new_lng,la_lat,la_lng);
 						carMk.setRotation(x);
 						carMk.setPosition(linesPoint[i-2]);
-						console.log(linesPoint[i-2]);
-						var route_go_line = new BMap.Polyline(linesPoint, { strokeColor: "red", strokeWeight: 5, strokeOpacity: 1 });   //创建折线  
-            			map.addOverlay(route_go_line);   //增加折线
+						var route_go_line = new BMap.Polyline(linesPoint, { strokeColor: "red", strokeWeight: 4, strokeOpacity: 1 });   //创建折线
+            			map.addOverlay(route_go_line);   //增加折线 
+						// route_go_line.remove(); 
+						// move_detail(linesPoint[i-2],linesPoint[i-3]);
+            			if(i%10==0){
+            				map.setCenter(linesPoint[i-2]);
+            			}
 					}
 					resetMkPoint(i,len);
 				},100);
 			}
+		}
+
+		function move_detail(curpoint, targetpoint){
+			curpo=map.pointToPixel(curpoint);
+			targetpo=map.pointToPixel(targetpoint);
+			console.log(curpoint);
 		}
 
 		function degree(px,py,mx,my){//获得人物中心和鼠标坐标连线，与y轴正半轴之间的夹角

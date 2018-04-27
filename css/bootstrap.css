@@ -5907,12 +5907,12 @@ button.close {
   background-color: #fff;
   -webkit-background-clip: padding-box;
           background-clip: padding-box;
-  border: 1px solid #999;
-  border: 1px solid rgba(0, 0, 0, .2);
-  border-radius: 6px;
+/*  border: 1px solid #999;
+  border: 1px solid rgba(0, 0, 0, .2);*/
+  border-radius: 4px;
   outline: 0;
-  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
-          box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+  -webkit-box-shadow: 0 3px 6px rgba(105, 91, 91, .5);
+          box-shadow: 0 3px 6px rgba(105, 91, 91, .5);
 }
 .modal-backdrop {
   position: fixed;
@@ -5974,8 +5974,8 @@ button.close {
     margin: 30px auto;
   }
   .modal-content {
-    -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+    -webkit-box-shadow: 0 3px 6px rgba(105, 91, 91, .5);
+          box-shadow: 0 3px 6px rgba(105, 91, 91, .5);
   }
   .modal-sm {
     width: 300px;

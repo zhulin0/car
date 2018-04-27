@@ -420,10 +420,6 @@ a:hover{
 	background-color: #fff;
 }
 
-.car{
-	border-radius: 5px;
-	padding: 10px;
-}
 
 .car>div{
 	margin: 5px;
@@ -446,6 +442,29 @@ a:hover{
 	/* 背景槽 */   
 	background-color: #ddd;   
 	border-radius: 6px; 
+}
+
+.car-thumb{
+	position: relative;
+	height: 70px;
+	background-color: #fff;
+	border-radius: 4px;
+	cursor: pointer;
+	padding: 10px;
+	line-height: 49px;
+	font-size: 20px;
+}
+
+.car-thumb-father{
+	width: 200px;
+	float: left;
+	padding: 10px;
+}
+
+.car{
+	width: 100%;
+	border-radius: 5px;
+	padding: 10px;
 }
 
 .car-left{
