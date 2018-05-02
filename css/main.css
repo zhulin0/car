@@ -263,6 +263,7 @@ a:hover{
 	line-height: 50px;
 	cursor: pointer;
 	border-bottom: 3px solid transparent;
+	width: auto;
 }
 
 .is-online{
@@ -301,6 +302,14 @@ a:hover{
 	background-color: #fff;
 }
 
+.filter-title:hover{
+	background-color: #ddd;
+}
+
+.filter>div:first-child{
+	background-color: #fff;
+}
+
 .filter-title,.filter-go{
 	line-height: 56px;
 	font-size: 1.1em;
@@ -308,6 +317,25 @@ a:hover{
 	float: left;
 	cursor: pointer;
 }
+.debug-log-title,.warning-log-title,.info-log-title,.error-log-title{
+	line-height: 56px;
+	font-size: 1.1em;
+	width: 100px;
+	float: left;
+	cursor: pointer;
+}
+
+.debug-log-title:hover,.warning-log-title:hover,.info-log-title:hover,.error-log-title:hover{
+	background-color: rgba(244,243,242,1) !important;/*
+	color: #07d0f1;*/
+}
+
+.log-title-click{
+	background-color: rgba(244,243,242,1) !important;
+	color: #07d0f1;
+	transition: all .5s;
+}
+
 .filter-go{
 	float: right;
 	color: #07d0f1;
@@ -410,16 +438,52 @@ a:hover{
     background-color: yellowgreen;
 }
 
-
-
-.filter-title:hover{
-	background-color: #ddd;
-}
-
-.filter>div:first-child{
+.log{
 	background-color: #fff;
+	height: 100px;
+	margin-bottom: 10px;
+	cursor: pointer;
+	border-radius: 5px;
+	padding: 10px;
+	box-sizing: border-box;
 }
 
+.log i{
+	font-size:4em;
+	margin: 10px 0 0 20px;	
+	color: #54caef;
+}
+
+.log .log-title{
+	display: inline-block;
+	margin-left: 20px;
+	width: 50%;
+}
+
+.log .log-title h5{
+	font-size: 1.3em;
+	font-weight: 600;
+}
+
+.log a{
+	float: right;
+	font-size: 1.4em;
+	font-weight: 700;
+	color: #54caef;
+	line-height: 80px;
+	margin-right: 40px;
+}
+.log .time{
+	float: right;
+	font-size: 1em;
+	color: #ddd;
+	line-height: 80px;
+	margin-right: 40px;
+}
+
+.warning-log,.info-log,.error-log{
+	display: none;
+}
 
 .car>div{
 	margin: 5px;
