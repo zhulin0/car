@@ -7,6 +7,8 @@
 </head>
 <!-- Bootstrap -->
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<!-- Layui -->
+<link rel="stylesheet" type="text/css" href="layui/css/layui.css">
 <!-- Main -->
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <!-- Font-awesome -->
@@ -36,7 +38,7 @@
 						<div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12 input_div">
 							<div class="row center">
 								<div class="col-sm-2 col-xs-2"><i class="fa fa-user-o"></i></div>
-								<input class="col-sm-10 col-xs-10" type="text" name="name" placeholder="用户名">
+								<input class="col-sm-10 col-xs-10" type="email" name="name" placeholder="用户名">
 							</div>
 						</div>
 						<div class="col-md-10 col-md-offset-1 col-sm-12 col-sm-12 col-xs-12 input_div">
@@ -45,15 +47,26 @@
 								<input class="col-sm-10 col-xs-10" type="password" name="password" placeholder="密码">
 							</div>
 						</div>
-						<div  class="col-md-10 col-md-offset-1 col-sm-12 col-sm-12 col-xs-12 verify">
+<!-- 						<div  class="col-md-10 col-md-offset-1 col-sm-12 col-sm-12 col-xs-12 verify">
 							<div class="row">
 								<input class="col-sm-6 col-xs-6" style="margin-top: 15px;border-bottom-left-radius: 5px;border-top-left-radius: 5px; height: 50px;" type="text" name="verify" placeholder="验证码">
-								<div class="col-sm-6 col-xs-6 img"></div>
+								<img class="col-sm-6 col-xs-6 img" src="image/top.jpg" onclick="getVerify()">
 							</div>
-						</div>
-						<div  class="col-md-8 col-md-offset-2 col-sm-12 col-sm-12 col-xs-12 verify">
+						</div> -->
+<!-- 						<div  class="col-md-10 col-md-offset-1 col-sm-12 col-sm-12 col-xs-12 method">
 							<div class="row">
-								<input class="col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1" style=" margin-top: 35px;" type="button" name="verify" value="登陆">
+								<div class="col-sm-6 col-xs-6">
+									<input type="radio" name="method" checked="" value="1">管理者
+								</div>
+								<div class="col-sm-6 col-xs-6">	
+									<input type="radio" name="method" value="2">车辆负责人
+								</div>
+							</div>
+						</div> -->
+						<div  class="col-md-8 col-md-offset-2 col-sm-12 col-sm-12 col-xs-12 verify" style="margin-top: 40px">
+							<div class="row">
+								<input class="col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1" type="button" name="verify" value="登陆" onclick="login()">
+								<div class="col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 load"><i class="fa fa-spinner fa-spin"></i></div>
 							</div>
 						</div>
 						<div  class="col-md-8 col-md-offset-2 col-sm-12 col-sm-12 col-xs-12" style="margin-top: 10px;">
@@ -70,15 +83,22 @@
 </body>
 <!-- JQuery -->
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<!-- Cookie -->
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<!-- Layui -->
+<script type="text/javascript" src="layui/layui.all.js"></script>
 <!-- Waypoints -->
 <script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
 <!-- Main -->
 <script type="text/javascript" src="js/main.js"></script>
+<!-- Login -->
+<script type="text/javascript" src="js/login.js"></script>
+
 
 <script type="text/javascript">
-	$("input[type='button']").on("click",function(){
-		window.location.href="dashboard.html";
-	})
+	// $("input[type='button']").on("click",function(){
+	// 	window.location.href="dashboard.html";
+	// })
 </script>
 
 </html>

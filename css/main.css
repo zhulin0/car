@@ -25,6 +25,7 @@ input{
 	font-size: 1.3em;
 	margin-top: 18px;
 	float: right;
+	cursor: pointer;
 }
 
 .header-right>p{
@@ -45,7 +46,7 @@ input{
 	cursor: pointer;
 }
 .header-right .user-picture{
-	margin-right: 10px;
+	padding-right: 10px;
 	border-radius: 50%;
 	width: 50px;
 	cursor: pointer;
@@ -112,7 +113,7 @@ input{
 
 
 .input_div{
-	margin-top: 30px;
+	margin-top: 50px;
 	background-color: #fff;
 	border-radius: 5px;
 }
@@ -129,11 +130,30 @@ input{
 .verify .img{
 	height: 52px;
 	margin: 14px 0 0 0;
-	background: url("../image/top.jpg");
+	padding: 0;
 	background-size: cover;
 	border:1px solid rgba(95,95,95,0.65);
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
+}
+
+.method{
+	font-size: 1.4em;
+	color: rgba(266,266,266,0.5);
+	margin-top: 40px;
+}
+
+.method div:first-child{
+	padding-left: 8%;
+}
+
+input[type="radio"]{
+	zoom:180%;
+	height: 10px;
+	line-height: 10px;
+	vertical-align: middle;
+	margin-right: 3px;
+	cursor: pointer;
 }
 
 input[type="button"]{
@@ -141,6 +161,23 @@ input[type="button"]{
 	border-radius: 5px;
 	color: #fff;
 	background-color:#029ffb;
+	margin-top: 20px;
+}
+
+div.load{
+	display: none;
+	line-height: 40px;
+	border-radius: 5px;
+	background-color:#07598a;
+	text-align: center;
+	padding-top: 10px;
+	margin-top: 20px;
+	margin-bottom: 5px;
+}
+
+div.load i{
+	color: #fff;
+	display: inline-block;
 }
 
 input[type="button"]:hover{
@@ -218,7 +255,7 @@ a:hover{
 	color: green;
 }
 .color-red{
-	color: red;
+	color: red !important;
 }
 
 .color-orange{
@@ -231,6 +268,14 @@ a:hover{
 
 .red{
 	background-color: red;
+}
+
+.blue{
+	background-color: blue !important;
+}
+
+.green{
+	background-color: green !important;
 }
 
 .gray{
@@ -444,13 +489,13 @@ a:hover{
 	margin-bottom: 10px;
 	cursor: pointer;
 	border-radius: 5px;
-	padding: 10px;
+	padding: 5px;
 	box-sizing: border-box;
 }
 
 .log i{
 	font-size:4em;
-	margin: 10px 0 0 20px;	
+	margin: 20px 0 0 20px;	
 	color: #54caef;
 }
 
@@ -470,14 +515,14 @@ a:hover{
 	font-size: 1.4em;
 	font-weight: 700;
 	color: #54caef;
-	line-height: 80px;
+	line-height: 100px;
 	margin-right: 40px;
 }
 .log .time{
 	float: right;
 	font-size: 1em;
 	color: #ddd;
-	line-height: 80px;
+	line-height: 100px;
 	margin-right: 40px;
 }
 
@@ -652,7 +697,7 @@ a:hover{
 
 .user-in{
 	font-size: 1.2em;
-	margin: 20px 30px;
+	margin: 20px 0px;
 
 }
 
@@ -673,16 +718,20 @@ a:hover{
 	font-size: .9em;
 }
 
-.user-add button{
+.user-mo button,.user-add button,.add-car button{
 	width: 250px;
 	height: 40px;
 	border-radius: 3px;
-	margin-top: 60px;
-	margin-left: 182px;
+	margin-top: 40px;
+	margin-left: 155px;
 	font-size: .9em;
 	color: #fff;
 	background-color: #07d0f1;
 	border:none;
+}
+
+.user-mo button{
+	margin-bottom: 20px;
 }
 
 .out-car>.user-td:first-child{
@@ -714,4 +763,176 @@ a:hover{
 	border-left:5px solid transparent;
 	cursor: pointer;
 
+}
+
+.switch{
+	float: right;
+	margin: 20px 40px 0 0;
+}
+
+input.cmn-toggle-round-flat + label {
+  padding: 2px;
+  width: 100px;
+  height: 50px;
+  background-color: #dddddd;
+  border-radius: 50px;
+  transition: background 0.4s;
+  position: relative;
+  cursor: pointer;
+}
+input.cmn-toggle-round-flat + label:before,
+input.cmn-toggle-round-flat + label:after {
+  display: block;
+  position: absolute;
+  content: "";
+}
+input.cmn-toggle-round-flat + label:before {
+  top: 2px;
+  left: 2px;
+  bottom: 2px;
+  right: 2px;
+  background-color: #fff;
+  border-radius: 60px;
+  transition: background 0.4s;
+}
+input.cmn-toggle-round-flat + label:after {
+  top: 4px;
+  left: 4px;
+  bottom: 4px;
+  width: 50px;
+  background-color: #dddddd;
+  border-radius: 45px;
+  transition: margin 0.4s, background 0.4s;
+}
+input.cmn-toggle-round-flat:checked + label {
+  background-color: #54caef;
+}
+input.cmn-toggle-round-flat:checked + label:after {
+  margin-left: 42px;
+  background-color: #54caef;
+}
+input.cmn-toggle{
+	display: none;
+}
+
+.user-content{
+	height: 100%; 
+	background-color: #fff;
+	padding: 50px;
+}
+
+.user-picture{
+	border-radius: 3px;
+	width: 100px;
+	display: inline-block;
+}
+
+.user-info-list{
+	display: inline-block;
+	margin-left: 26px;
+	vertical-align: bottom;
+}
+
+.user-info-name{
+	font-size: 40px;
+}
+
+.user-info-name i,.user-info-role i,.user-info-active i{
+	font-size: 16px;
+	color: #fff;
+	border-radius: 3px;
+	margin-left: 20px;
+	padding: 5px 10px;
+	vertical-align: middle;
+}
+
+.user-info-role i,.user-info-active i{
+	margin-left: 0;
+}
+
+
+.user-info-other{
+	font-size: 20px;
+	color: #999;
+}
+
+.user-info-content-top{
+	padding-bottom: 40px;
+}
+
+.user-info-content-bottom{
+	margin-top: 40px;
+}
+
+.user-info-content-bottom ul li{
+	width: 300px;
+	text-align: center;
+}
+
+.user-info-content-bottom ul a{
+	font-size: 16px;
+	line-height: 40px;
+}
+
+.tab-content{
+	padding-top:25px;
+	padding-left: 10px;
+}
+
+.user-info-label{
+	display: inline-block;
+	width: 140px;
+	padding: 0 15px;
+	font-size: 20px;
+	line-height: 40px;
+	letter-spacing: 2px;
+	font-weight: 600;
+	color: #999;
+	text-align: right;
+}
+
+.user-info-value{
+	display: inline-block;
+	font-size: 16px;
+	line-height: 40px;
+	color: #999;
+	margin-left: 30px;
+}
+
+#myTabContent #home>div,#myTabContent #ios>div,#myTabContent #logout>div{
+	margin-top: 25px;
+}
+
+#myTabContent #ios input,#myTabContent #logout input{
+	width: 240px;
+	border-radius: 3px;
+	height: 40px;
+	padding-left: 10px;
+}
+
+#myTabContent #ios button,#myTabContent #logout button{
+	width: 240px;
+	height: 45px;
+	font-size: 16px;
+	border-radius: 3px;
+	color: #fff;
+	background-color:#029ffb;
+	border:1px solid #029ffb;
+	margin-top: 50px;
+	margin-left: 175px;
+}
+
+#myTabContent #logout p{
+	font-size: 16px;
+}
+
+
+#myTabContent #logout a{
+	display: inline-block;
+	text-align: center;
+	width: 200px;
+	line-height: 45px;
+	border-top: 1px solid #ddd;
+	margin-left: 195px;
+	margin-top: 30px;
 }

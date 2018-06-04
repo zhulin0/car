@@ -6,6 +6,8 @@
 	<title>智能车</title>
 <!-- Bootstrap -->
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<!-- Layui -->
+<link rel="stylesheet" type="text/css" href="layui/css/layui.css">
 <!-- Main -->
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <!-- Font-awesome -->
@@ -74,112 +76,8 @@
 							</div>
 						</div>
 						<div class="row user-list">
-							<div class="col-sm-12">
-								<div style="border-bottom: 1px solid #eee;">
-									<div class="user-tr col-sm-2">
-										ID
-									</div>
-									<div class="user-tr col-sm-2">
-										用户名
-									</div>
-									<div class="user-tr col-sm-2">
-										邮箱
-									</div>
-									<div class="user-tr col-sm-2">
-										电话号码
-									</div>
-									<div class="user-tr col-sm-2">
-										角色
-									</div>
-									<div class="user-tr col-sm-2">
-										操作
-									</div>
-									<div class="clearfix"></div>
-								</div>
-								<div>
-									<div class="user-td col-sm-2">
-										1
-									</div>
-									<div class="user-td col-sm-2">
-										admin
-									</div>
-									<div class="user-td col-sm-2">
-										38928329392@qq.com
-									</div>
-									<div class="user-td col-sm-2">
-										15138298333
-									</div>
-									<div class="user-td col-sm-2">
-										管理员
-									</div>
-									<div class="user-td col-sm-2">
-										<button>更新</button>
-										<button>删除</button>
-									</div>
-								</div>
-								<div>
-									<div class="user-td col-sm-2">
-										2
-									</div>
-									<div class="user-td col-sm-2">
-										admin
-									</div>
-									<div class="user-td col-sm-2">
-										38928329392@qq.com
-									</div>
-									<div class="user-td col-sm-2">
-										15138298333
-									</div>
-									<div class="user-td col-sm-2">
-										管理员
-									</div>
-									<div class="user-td col-sm-2">
-										<button>更新</button>
-										<button>删除</button>
-									</div>
-								</div>
-								<div>
-									<div class="user-td col-sm-2">
-										3
-									</div>
-									<div class="user-td col-sm-2">
-										admin
-									</div>
-									<div class="user-td col-sm-2">
-										38928329392@qq.com
-									</div>
-									<div class="user-td col-sm-2">
-										15138298333
-									</div>
-									<div class="user-td col-sm-2">
-										管理员
-									</div>
-									<div class="user-td col-sm-2">
-										<button>更新</button>
-										<button>删除</button>
-									</div>
-								</div>
-								<div>
-									<div class="user-td col-sm-2">
-										4
-									</div>
-									<div class="user-td col-sm-2">
-										admin
-									</div>
-									<div class="user-td col-sm-2">
-										38928329392@qq.com
-									</div>
-									<div class="user-td col-sm-2">
-										15138298333
-									</div>
-									<div class="user-td col-sm-2">
-										管理员
-									</div>
-									<div class="user-td col-sm-2">
-										<button>更新</button>
-										<button>删除</button>
-									</div>
-								</div>
+							<div class="col-sm-12 users-list-ul">
+								
 							</div>
 						</div>
 						<div class="row user-add">
@@ -195,21 +93,53 @@
 								</div>
 								<div class="user-in col-sm-12 user-role">
 									<span>角色:</span><select>
-										<option>管理员</option>
-										<option>游客</option>
-										<option>黑名单</option>
+										<option value="1">管理员</option>
+										<option value="2">游客</option>
+										<option value="3">黑名单</option>
 									</select>
 								</div>
 								<div class="user-in col-sm-12 user-password">
 									<span>初始密码:</span><input type="password" name="">
 								</div>
-								<div class="user-in col-sm-12 user-password">
+								<div class="user-in col-sm-12 user-sure-password">
 									<span>确认密码:</span><input type="password" name="">
 								</div>
 
-								<button>确认</button>
+								<button onclick="register()">确认</button>
 							</div>
 						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="top: 240px;">
+		<div class="modal-dialog" style="width: 785px;">
+			<div class="modal-content">
+				<div class="modal-body">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+
+					<div class="user-mo">
+						<div class="user-in col-sm-12 user-id">
+							<span>用户名:</span><input type="text" name="">
+						</div>
+						<div class="user-in col-sm-12 user-email">
+							<span>邮箱:</span><input type="email" name="">
+						</div>
+						<div class="user-in col-sm-12 user-phone">
+							<span>电话号码:</span><input type="tel" name="">
+						</div>
+						<div class="user-in col-sm-12 user-role">
+							<span>角色:</span><select>
+								<option value="1">管理员</option>
+								<option value="2">游客</option>
+								<option value="3">黑名单</option>
+							</select>
+						</div>
+						<button onclick="mo()">确认</button>
 					</div>
 				</div>
 			</div>
@@ -218,10 +148,20 @@
 </body>
 <!-- JQuery -->
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<!-- Cookie -->
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<!-- Bootstrap -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- Layui -->
+<script type="text/javascript" src="layui/layui.all.js"></script>
 <!-- Waypoints -->
 <script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
 <!-- Main -->
 <script type="text/javascript" src="js/main.js"></script>
+<!-- returnTologin -->
+<script type="text/javascript" src="js/returnTologin.js"></script>
+
+<script type="text/javascript" src="js/users.js"></script>
 
 <script type="text/javascript">
 

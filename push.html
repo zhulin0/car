@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>智能车</title>
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<!-- Main -->
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<!-- Font-awesome -->
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<!-- Animate -->
+<link rel="stylesheet" type="text/css" href="css/animate.css">
+</head>
+
+<body style="">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="row header" style="background-color: #171717;display: block;">
+					<div class="logo col-sm-8 col-sm-offset-1 col-xs-6">智能车云平台</div>
+					<div class="header-right">
+						<img src="image/avatar.png" class="user-picture">
+						<span class="user-name">admin</span>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-2 col-md-2 col-xs-12 menu" style="height:80px;min-width: 130px;padding: 0; background-color: rgba(37,37,37,1);">
+						<ul style="list-style: none;">
+							<li class="col-sm-12 hidden-xs" style="height: 80px;line-height:80px; font-size: 1.2em;letter-spacing:3px">
+								<i class="fa fa-navicon" style="font-size: 1.4em;"></i>
+							</li>
+							<li class="col-sm-12" onclick="javascript:window.location.href='dashboard.html'">
+								<i class="fa fa-list-alt"></i>车辆概况
+								<span class="green">36</span>
+								<span class="orange" style="margin-left: 45px;">7</span>
+							</li>
+							<li class="col-sm-12" onclick="javascript:window.location.href='map.html'">
+								<i class="fa fa-map"></i>车辆分布
+							</li>
+							<li class="col-sm-12"  onclick="javascript:window.location.href='log.html'" >
+								<i class="fa fa-list-ol"></i>车辆日志
+							</li>
+							<li class="col-sm-12"  onclick="javascript:window.location.href='warning.html'">
+								<i class="fa fa-warning"></i>车辆异常
+								<span class="red">12</span>
+							</li>
+							<li class="col-sm-12"  onclick="javascript:window.location.href='users.html'">
+								<i class="fa fa-users"></i>用户管理
+							</li>
+							<li class="col-sm-12"  onclick="javascript:window.location.href='car_type.html'">
+								<i class="fa fa-truck"></i>车型管理
+							</li>
+							<li class="col-sm-12"  onclick="javascript:window.location.href='car.html'">
+								<i class="fa fa-car"></i>车辆管理
+							</li>
+							<li class="col-sm-12"  onclick="javascript:window.location.href='car_team.html'">
+								<i class="fa fa-bicycle"></i>车队管理
+							</li>
+							<li class="col-sm-12 " style="background-color: #EAEDEB;color: #000;" >
+								<i class="fa fa-envelope"></i>推送设置
+							</li>
+
+						</ul>
+						<div class="menu_after"></div>
+					</div>
+					<div class="col-sm-10 control" style="background-color: #f4f3f2;">
+						<div class="row general center">
+							<div class="col-md-1 online-title is-online">推送</div>
+							<div class="search-online">
+								<input type="text" name="search" placeholder="搜索关键字">
+								<i class="fa fa-search" style="position: absolute;right: 15px; top: 8px; color: #ddd;font-size: 1.5em;"></i>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="filter"> 
+								<div class="debug-log-title center log-title-click">
+									邮件推送
+								</div>
+								<div  class="warning-log-title center">
+									短信推送
+								</div>
+							</div>
+						</div>
+						
+						<div class="row car-content" style="padding: 20px;overflow: auto;">
+							<div class="debug-log">
+								<div class="log">
+									<i class="fa fa-envelope"></i>
+									<div class="log-title">
+										<h5>邮件推送</h5>
+										<p>通过邮件的方式接收推送</p>
+									</div>
+									<div class="switch">
+										<input id="cmn-toggle-mail" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+										<label for="cmn-toggle-mail"></label>
+									</div>
+								</div>
+							</div>
+							<div class="warning-log">
+								<div class="log">
+									<i class="fa fa-mobile-phone"></i>
+									<div class="log-title">
+										<h5>短信推送</h5>
+										<p>通过短信的方式接收推送</p>
+									</div>
+									<div class="switch">
+										<input id="cmn-toggle-phone" class="cmn-toggle cmn-toggle-round-flat" type="checkbox">
+										<label for="cmn-toggle-phone"></label>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 模态框（Modal） -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
+	   aria-labelledby="myModalLabel" aria-hidden="true" style="top: 240px;">
+	   <div class="modal-dialog">
+	      <div class="modal-content">
+	         <div class="modal-header">
+	            <button type="button" class="close" 
+	               data-dismiss="modal" aria-hidden="true">
+	                  &times;
+	            </button>
+	            <h4 class="modal-title" id="myModalLabel">
+	               日志
+	            </h4>
+	         </div>
+	         <div class="modal-body" style="height: 500px;">
+	            日志详情
+	         </div>
+	      </div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</body>
+<!-- JQuery -->
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<!-- Waypoints -->
+<script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
+<!-- Main -->
+<script type="text/javascript" src="js/main.js"></script>
+<!-- returnTologin -->
+<script type="text/javascript" src="js/returnTologin.js"></script>
+
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+
+	function change_height(){
+		var width=$("body").width();
+		if(width>=766){
+			var height=$(window).height();
+
+			$(".car-content").height(function(n,c){
+				return height-81-84-56-40;
+			})
+			var header_height=$(".header").height();
+			$(".menu").height(function(n,c){
+				return height-header_height;
+			});
+			$(".control").height(function(n,c){
+				return height-header_height;
+			});
+
+			$('.menu_after').css({
+					height:function(n,c){
+					return height-header_height-100;
+				},
+					left:function(n,c){
+						var menu_width=$(".menu").width();
+					return menu_width;
+				},
+					display:function(n,c){
+						return 'block';
+					}
+			});
+		}else{
+			$(".menu").height(60);
+			$(".control").css('height',"auto");
+			$(".menu").css("max-width","100%");
+			$(".menu").css("min-height","0px");
+			$('.menu_after').css({"display":"none"});
+		}
+	}
+	change_height();
+	$(window).resize(function(){
+			change_height();
+	});
+
+	$(".online-title").on('click',function(){
+		$(".offline-title").removeClass("is-online");
+		$(".online-title").addClass("is-online");
+	});
+	$(".offline-title").on('click',function(){
+		$(".online-title").removeClass("is-online");
+		$(".offline-title").addClass("is-online");
+	})
+
+	$(".debug-log-title,.warning-log-title,.info-log-title,.error-log-title").on("click",function(){
+		$(".filter").children().removeClass("log-title-click");
+		$(this).addClass("log-title-click");
+		$(".car-content").children().css("display","none");
+		var x=$(this).attr("class");
+		x=x.split(' ')[0];
+		x=x.split('-')[0];
+		$("."+x+"-log").css('display','block');
+	})
+
+</script>
+</html>

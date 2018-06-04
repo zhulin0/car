@@ -72,3 +72,11 @@
 
 
 }());
+
+
+$("body").on("click",".header-right",function(){
+	window.location.href="user.html";
+})
+
+
+var addr="http://172.23.244.118:8080";

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>智能车</title>
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<!-- Main -->
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<!-- Font-awesome -->
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<!-- Animate -->
+<link rel="stylesheet" type="text/css" href="css/animate.css">
+</head>
+
+<body style="">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="row header" style="background-color: #171717;display: block;">
+					<div class="logo col-sm-8 col-sm-offset-1 col-xs-6">智能车云平台</div>
+					<div class="header-right">
+						<img src="image/avatar.png" class="user-picture">
+						<span class="user-name">admin</span>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-2 col-md-2 col-xs-12 menu" style="height:80px;min-width: 130px;padding: 0; background-color: rgba(37,37,37,1);">
+						<ul style="list-style: none;">
+							<li class="col-sm-12 hidden-xs" style="height: 80px;line-height:80px; font-size: 1.2em;letter-spacing:3px">
+								<i class="fa fa-navicon" style="font-size: 1.4em;"></i>
+							</li>
+							<li class="col-sm-12" onclick="javascript:window.location.href='dashboard.html'">
+								<i class="fa fa-list-alt"></i>车辆概况
+								<span class="green">36</span>
+								<span class="orange" style="margin-left: 45px;">7</span>
+							</li>
+							<li class="col-sm-12" onclick="javascript:window.location.href='map.html'">
+								<i class="fa fa-map"></i>车辆分布
+							</li>
+							<li class="col-sm-12"  onclick="javascript:window.location.href='log.html'">
+								<i class="fa fa-list-ol"></i>车辆日志
+							</li>
+							<li class="col-sm-12" style="background-color: #EAEDEB;color: #000;" >
+								<i class="fa fa-warning"></i>车辆异常
+								<span class="red">12</span>
+							</li>
+							<li class="col-sm-12"  onclick="javascript:window.location.href='users.html'">
+								<i class="fa fa-users"></i>用户管理
+							</li>
+							<li class="col-sm-12"  onclick="javascript:window.location.href='car_type.html'">
+								<i class="fa fa-truck"></i>车型管理
+							</li>
+							<li class="col-sm-12"  onclick="javascript:window.location.href='car.html'">
+								<i class="fa fa-car"></i>车辆管理
+							</li>
+							<li class="col-sm-12"  onclick="javascript:window.location.href='car_team.html'">
+								<i class="fa fa-bicycle"></i>车队管理
+							</li>
+							<li class="col-sm-12"  onclick="javascript:window.location.href='push.html'">
+								<i class="fa fa-envelope"></i>推送设置
+							</li>
+
+						</ul>
+						<div class="menu_after"></div>
+					</div>
+					<div class="col-sm-10 control" style="background-color: #f4f3f2;">
+						<div class="row general center">
+							<div class="col-md-1 online-title is-online">在线</div>
+							<div class="col-md-1 offline-title">离线</div>
+							<div class="search-online">
+								<input type="text" name="search" placeholder="搜索关键字">
+								<i class="fa fa-search" style="position: absolute;right: 15px; top: 8px; color: #ddd;font-size: 1.5em;"></i>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="filter">
+								<div class="filter-title center" style="background-color: #f4f3f2;">
+										条件排序
+								</div>
+								<div class="filter-title center" data="speed">
+									地域
+								</div>
+								<div  class="filter-title center" data="size">
+									车型
+								</div>
+								<div class="filter-title center" data="brake">
+									车队
+								</div>
+								<div class="filter-title center" data="angel">
+									投放时间
+								</div>
+								<div class="filter-title center" data="exception">
+									故障
+								</div>
+								<div class="filter-go center">
+									筛选
+								</div>
+
+								<div class="filter-content">
+ 									<div class="speed">
+										省:<select id="s_province" name="s_province"></select>  
+    									市:<select id="s_city" name="s_city" ></select>  
+    									县:<select id="s_county" name="s_county"></select>
+									</div>
+									<div class="size">
+										车型:<select>
+												<option>[长]3M*[宽]3M*[高]3M</option>
+												<option>[长]3M*[宽]3M*[高]3M</option>
+												<option>[长]3M*[宽]3M*[高]3M</option>
+											</select>
+										品牌:<select>
+												<option>[长]3M*[宽]3M*[高]3M</option>
+												<option>[长]3M*[宽]3M*[高]3M</option>
+												<option>[长]3M*[宽]3M*[高]3M</option>
+											</select>
+										型号:<select>
+												<option>[长]3M*[宽]3M*[高]3M</option>
+												<option>[长]3M*[宽]3M*[高]3M</option>
+												<option>[长]3M*[宽]3M*[高]3M</option>
+											</select>
+									</div>
+									<div class="brake">
+										名称:<input type="" name="">
+										编号:<input type="" name="">
+									</div>
+
+									<div class="angel">
+										从<input type="date" name="">&nbsp;&nbsp;
+										至
+										<input type="date" name="">&nbsp;&nbsp;
+									</div>
+
+									<div class="exception">
+										<div>
+											<input type="checkbox" name="brake" value="BrakePedalStatus" id="BrakePedalStatus" ><label for="BrakePedalStatus">BrakePedalStatus</label><br>
+         									<input type="checkbox" name="brake" value="BrakeAppliedStatus" id="BrakeAppliedStatus" ><label for="BrakeAppliedStatus">BrakeAppliedStatus</label>
+         								</div>
+         								<div>
+        									<input type="checkbox" name="brake" value="TractionControlStatus" id="TractionControlStatus" ><label for="TractionControlStatus">TractionControlStatus</label><br>
+        									<input type="checkbox" name="brake" value="AntiLockBrakeStatus" id="AntiLockBrakeStatus" ><label for="AntiLockBrakeStatus">AntiLockBrakeStatus</label>
+        								</div>
+        								<div>
+        									<input type="checkbox" name="brake" value="StabilityControlStatus" id="StabilityControlStatus" ><label for="StabilityControlStatus">StabilityControlStatus</label><br>
+        									<input type="checkbox" name="brake" value="BrakeBoostApplied" id="BrakeBoostApplied" ><label for="BrakeBoostApplied">BrakeBoostApplied</label>
+        								</div>
+        								<div>
+        									<input type="checkbox" name="brake" value="AuxiliaryBrakeStatus" id="AuxiliaryBrakeStatus" ><label for="AuxiliaryBrakeStatus">AuxiliaryBrakeStatus</label>
+        								</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row car-content" style="padding: 20px;overflow: auto;">
+							<div class="debug-log col-sm-6">
+								<div class="log" data-toggle="modal" data-target="#myModal">
+									<i class="fa fa-warning color-red"></i>
+									<div class="log-title">
+										<h5>津888888</h5>
+										<p>刹车系统：ABS出现问题</p>
+									</div>
+									<a> 查看</a>
+									<p class="time">03/14/2017</p>
+								</div>
+							</div>
+
+							<div class="debug-log col-sm-6">
+								<div class="log" data-toggle="modal" data-target="#myModal">
+									<i class="fa fa-warning color-red"></i>
+									<div class="log-title">
+										<h5>津888888</h5>
+										<p>刹车系统：ABS出现问题</p>
+									</div>
+									<a> 查看</a>
+									<p class="time">03/14/2017</p>
+								</div>
+							</div>
+
+							<div class="debug-log col-sm-6">
+								<div class="log" data-toggle="modal" data-target="#myModal">
+									<i class="fa fa-warning color-red"></i>
+									<div class="log-title">
+										<h5>津888888</h5>
+										<p>刹车系统：ABS出现问题</p>
+									</div>
+									<a> 查看</a>
+									<p class="time">03/14/2017</p>
+								</div>
+							</div>
+
+
+
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="top: 240px;">
+		<div class="modal-dialog" style="width: 785px;">
+			<div class="modal-content">
+				<div class="modal-body">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+						&times;
+					</button>
+					<div class="car">
+						<div>
+							<div class="col-sm-4 car-left">
+								<div class="car-board">
+									<img src="image/car.png">
+								</div>
+								<div class="car-brake center">
+									<div>
+										<i class="fa fa-circle color-green"></i>BPS
+										<i class="fa fa-circle color-red"></i>BAS
+										<i class="fa fa-circle color-green"></i>TCS<br/>
+										<i class="fa fa-circle color-orange"></i>ABS
+										<i class="fa fa-circle color-green"></i>SCS 
+										<i class="fa fa-circle color-orange"></i>BBA <br/>
+										<i class="fa fa-circle color-green"></i>ABS
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-8 car-right">
+								<div class="car-light">
+									<div style="float: left;">
+										<i class="fa fa-lightbulb-o"></i>
+									</div>
+									<div style="margin-left: 46px;">
+										<i class="fa fa-circle color-green"></i><span title="LowBeamHeadlights">LBHL</span>
+										<i class="fa fa-circle color-green"></i><span title="HighBeamHeadlights">LTS</span>
+										<i class="fa fa-circle color-red"></i><span title="LeftTurnSignal">RTS</span>
+										<i class="fa fa-circle color-green"></i><span title="RightTurnSignal">HS</span><br/>
+										<i class="fa fa-circle color-green"></i><span title="HazardSignal">ALC</span>
+										<i class="fa fa-circle color-orange"></i><span title="AutomaticLightControl">HBHL</span>
+										<i class="fa fa-circle color-green"></i><span title="DaytimeRunningLights">DRL</span>
+										<i class="fa fa-circle color-orange"></i><span title="FogLight">FL</span>
+										<i class="fa fa-circle color-green"></i><span title="ParkingLights">PL</span>
+									</div>
+								</div>
+								<div class="car-information">
+									<span class="car-information-item">车辆速度:</span><span class="car-information-value">12.80&nbsp;M/S</span><br/>
+
+									<span class="car-information-item">车辆大小:</span><span class="car-information-value">3M*3M*3M</span><br/>
+
+									<span class="car-information-item">四轴加速度:</span><span class="car-information-value">3&nbsp;M/S<span style="vertical-align: 6px;font-size: 0.4em;">2</span></span><span class="car-information-value">3&nbsp;M/S<span style="vertical-align: 6px;font-size: 0.4em;">2</span></span><span class="car-information-value">3&nbsp;M/S<span style="vertical-align: 6px;font-size: 0.4em;">2</span></span><span class="car-information-value">3&nbsp;M/S<span style="vertical-align: 6px;font-size: 0.4em;">2</span></span><br/>
+
+									<span class="car-information-item">方向盘转角:</span><span class="car-information-value"></span><span class="car-information-value">45</span>度<br/>
+
+									<span class="car-information-item">车速精度:</span><span class="car-information-value"></span><span class="car-information-value">90</span>%<br/>
+
+									<span class="car-information-item">航向精度:</span><span class="car-information-value"></span><span class="car-information-value">90</span>%<br/>
+
+									<span class="car-information-item">方向盘精度:</span><span class="car-information-value"></span><span class="car-information-value">90</span>%<br/>
+
+								</div>
+								<div class="car-button">
+									<button>车辆详情</button>
+									<button>历史数据</button>
+									<button>当前位置</button>
+									<button>轨迹追踪</button>
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal -->
+	</div>
+</body>
+<!-- JQuery -->
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<!-- Bootstrap -->
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- Waypoints -->
+<script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
+<!-- Main -->
+<script type="text/javascript" src="js/main.js"></script>
+<!-- returnTologin -->
+<script type="text/javascript" src="js/returnTologin.js"></script>
+
+<script class="resources library" src="js/area.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+	_init_area();
+
+	function change_height(){
+		var width=$("body").width();
+		if(width>=766){
+			var height=$(window).height();
+
+			$(".car-content").height(function(n,c){
+				return height-81-84-56-40;
+			})
+			var header_height=$(".header").height();
+			$(".menu").height(function(n,c){
+				return height-header_height;
+			});
+			$(".control").height(function(n,c){
+				return height-header_height;
+			});
+
+			$('.menu_after').css({
+					height:function(n,c){
+					return height-header_height-100;
+				},
+					left:function(n,c){
+						var menu_width=$(".menu").width();
+					return menu_width;
+				},
+					display:function(n,c){
+						return 'block';
+					}
+			});
+		}else{
+			$(".menu").height(60);
+			$(".control").css('height',"auto");
+			$(".menu").css("max-width","100%");
+			$(".menu").css("min-height","0px");
+			$('.menu_after').css({"display":"none"});
+		}
+	}
+	change_height();
+	$(window).resize(function(){
+			change_height();
+	});
+
+	$(".online-title").on('click',function(){
+		$(".offline-title").removeClass("is-online");
+		$(".online-title").addClass("is-online");
+	});
+	$(".offline-title").on('click',function(){
+		$(".online-title").removeClass("is-online");
+		$(".offline-title").addClass("is-online");
+	})
+
+	$(".filter-title").on("mouseover",function(){
+		$(".filter-content").children().css("display","none");
+		var x=$(this).attr("data");
+		$("."+x).css("display","block");
+
+	})
+	$(".filter-title").on("mouseout",function(){
+		var x=$(this).attr("data");
+	})
+
+</script>
+</html>

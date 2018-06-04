@@ -172,6 +172,8 @@
 <script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
 <!-- Main -->
 <script type="text/javascript" src="js/main.js"></script>
+<!-- returnTologin -->
+<script type="text/javascript" src="js/returnTologin.js"></script>
 
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=3VqNyjz7iBM965mIrK7OTmA8u6V9pTTZ"></script>
 
@@ -279,12 +281,31 @@
 			driving4.search(spoi1, epoi,{waypoints:["北京北站","北京国际会议中心"]});
 	}
 
+	var isCenter=true;
+	var isCenterTime=0;
+	map.addEventListener("dragstart", function(evt){
+		isCenterTime=0;
+		isCenter=false;
+		cancelCenter=setInterval(function(){
+			var sumTime=3;
+			if(isCenterTime==sumTime){
+				isCenter=true;
+			}
+			else if(isCenterTime>sumTime){
+				isCenterTime=10;
+			}
+			else{
+				isCenterTime++;
+			}
+		},1000);
+	});
+
 	var route_to_go;
 	var linesPoint = new Array;
 	function run(){
 		linesPoint.push(linesPoints[0][0]);
 		linesPoint.push(linesPoints[0][1]);
-		map.centerAndZoom(linesPoint[0],15);
+		map.centerAndZoom(linesPoint[0],16);
 		var carMk = new BMap.Marker(linesPoint[0],{icon:myIcon});
 		// carMk.setAnimation(BMAP_ANIMATION_BOUNCE);//跳动的动画
 		map.addOverlay(carMk);
@@ -305,13 +326,13 @@
 						var new_lng=linesPoint[i-2].lng*1000000;
 						var x= degree(new_lat,new_lng,la_lat,la_lng);
 						carMk.setRotation(x);
-						carMk.setPosition(linesPoint[i-2]);
+						// move_detail(linesPoint[i-2],linesPoint[i-3],carMk);
+						carMk.setPosition(linesPoint[i-3]);
 						var route_go_line = new BMap.Polyline(linesPoint, { strokeColor: "red", strokeWeight: 4, strokeOpacity: 1 });   //创建折线
             			map.addOverlay(route_go_line);   //增加折线 
 						// route_go_line.remove(); 
-						// move_detail(linesPoint[i-2],linesPoint[i-3]);
-            			if(i%10==0){
-            				map.setCenter(linesPoint[i-2]);
+            			if(isCenter==true){
+            				map.panTo(linesPoint[i-2]);
             			}
 					}
 					resetMkPoint(i,len);
@@ -319,10 +340,57 @@
 			}
 		}
 
-		function move_detail(curpoint, targetpoint){
-			curpo=map.pointToPixel(curpoint);
-			targetpo=map.pointToPixel(targetpoint);
-			console.log(curpoint);
+		function move_detail(curpoint, targetpoint,carMk){
+			var curpo=map.pointToPixel(curpoint);
+			var targetpo=map.pointToPixel(targetpoint);
+			var cur_lat=curpo.x;
+			var cur_lng=curpo.y;
+			var tar_lat=targetpo.x;
+			var tar_lng=targetpo.y;
+			var point;
+			var lin=new Array;
+			var route_go_line_detail
+			if(tar_lat==cur_lat){
+				var k=(tar_lng-cur_lng)/100;
+				for(var j=0;j<100;j++){
+					point = {
+						x:cur_lat,
+						y:cur_lng+(j+1)*k
+					}
+					point=map.pixelToPoint(point);
+					
+					setTimeout(function(){
+						carMk.setPosition(point);
+					},1);	
+
+					if(j!=0){
+						route_go_line_detail.remove(); 
+					} 
+					lin.push(point);
+					route_go_line_detail = new BMap.Polyline(lin, { strokeColor: "red", strokeWeight: 4, strokeOpacity: 1 });   //创建折线
+		            map.addOverlay(route_go_line_detail);   //增加折线 
+				}	
+			}else{
+				var k=(tar_lng-cur_lng)/(tar_lat-cur_lat);
+				for(var j=0;j<100;j++){
+					point = {
+						x:cur_lat+(tar_lat-cur_lat)/100*(j+1),
+						y:cur_lng+(tar_lat-cur_lat)/100*(j+1)*k
+					}
+					point=map.pixelToPoint(point);
+					
+					setTimeout(function(){
+						carMk.setPosition(point);
+					},1);
+					if(j!=0){
+						route_go_line_detail.remove(); 
+					}
+					lin.push(point);
+					route_go_line_detail = new BMap.Polyline(lin, { strokeColor: "red", strokeWeight: 4, strokeOpacity: 1 });   //创建折线
+		            map.addOverlay(route_go_line_detail);   //增加折线
+				}
+			}
+
 		}
 
 		function degree(px,py,mx,my){//获得人物中心和鼠标坐标连线，与y轴正半轴之间的夹角
