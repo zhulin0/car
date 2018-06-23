@@ -79,4 +79,4 @@ $("body").on("click",".header-right",function(){
 })
 
 
-var addr="http://172.23.244.118:8080";
+var addr="http://localhost:8080";
