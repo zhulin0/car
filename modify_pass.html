@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>智能车</title>
+</head>
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<!-- Layui -->
+<link rel="stylesheet" type="text/css" href="layui/css/layui.css">
+<!-- Main -->
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<!-- Font-awesome -->
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<!-- Animate -->
+<link rel="stylesheet" type="text/css" href="css/animate.css">
+
+<body style="background: rgb(55,61,65); min-width: 0;">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12" style="background: url('image/top2.jpg');background-size:cover;display: inline-block;background-position: top center;">
+				<div class="row header" style="border-bottom: 1px solid #555;">
+					<div class="logo col-sm-8 col-sm-offset-1 col-xs-6">
+						<img src="./image/autocar_logo.png" style="width: 100px;margin-right: 10px;">智能车云平台</div>
+					<div class="header-right">
+					</div>
+				</div>
+				<div class="row login animate-box">
+					<div class="col-sm-12 login_left center" data-animate-effect="fadeIn">
+						<p>乐出行，悦自由</p>
+					</div>
+				</div>
+				<div class="row login animate-box">
+					<div class="col-sm-12 login_right animate-box" data-animate-effect="fadeInDown">
+						<p class="center">修改密码</p>
+						<div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12 input_div input_div_first" style=" margin-top: 60px;">
+							<div class="row center">
+								<div class="col-sm-2 col-xs-2">
+									<i class="fa fa-user-o"></i>
+								</div>
+								<input class="col-sm-10 col-xs-10" type="password" name="password" placeholder="密码">
+							</div>
+						</div>
+						<span style="font-size:  14px;width: 370px;display: inline-block;line-height: 20px;vertical-align: middle;margin-left: 42px;color: #999;margin-top: 10px;">长度为8~16位，必须含有大小写字母和数字，不能含有空格，可以使用特殊字符（不包括单引号，分号 ，\n，\r和\*）</span>
+						<div class="col-md-10 col-md-offset-1 col-sm-12 col-sm-12 col-xs-12 input_div" style=" margin-top: 25px;">
+							<div class="row center">
+								<div class="col-sm-2 col-xs-2">
+									<i class="fa fa-key"></i>
+								</div>
+								<input class="col-sm-10 col-xs-10" type="password" name="re_password" placeholder="确认密码" onkeydown="keyup_submit(event);">
+							</div>
+						</div>
+						<!-- 						<div  class="col-md-10 col-md-offset-1 col-sm-12 col-sm-12 col-xs-12 verify">
+							<div class="row">
+								<input class="col-sm-6 col-xs-6" style="margin-top: 15px;border-bottom-left-radius: 5px;border-top-left-radius: 5px; height: 50px;" type="text" name="verify" placeholder="验证码">
+								<img class="col-sm-6 col-xs-6 img" src="image/top.jpg" onclick="getVerify()">
+							</div>
+						</div> -->
+						<!-- 						<div  class="col-md-10 col-md-offset-1 col-sm-12 col-sm-12 col-xs-12 method">
+							<div class="row">
+								<div class="col-sm-6 col-xs-6">
+									<input type="radio" name="method" checked="" value="1">管理者
+								</div>
+								<div class="col-sm-6 col-xs-6">	
+									<input type="radio" name="method" value="2">车辆负责人
+								</div>
+							</div>
+						</div> -->
+						<div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-12 col-xs-12 verify verify1366" style="margin-top: 40px">
+							<div class="row">
+								<input class="col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1" type="button" name="verify" value="确认修改" onclick="modify_pass()">
+								<div class="col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 load">
+									<i class="fa fa-spinner fa-spin"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<div style="color: #fff;text-align: center;margin-top: 30px;
+			margin-bottom: 15px;">
+				<img src="./image/autocar_logo.png" style="width: 100px;margin-bottom: 10px;">
+				<p>奥特贝睿（北京）科技有限公司 版权所有
+					<br> Copyright © 2012-2018 Beijing AutoBrain Technology Co., Ltd. All Rights reserved</p>
+			</div>
+		</div>
+	</div>
+	<!-- JQuery -->
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<!-- Cookie -->
+	<script type="text/javascript" src="js/jquery.cookie.js"></script>
+	<!-- Layui -->
+	<script type="text/javascript" src="layui/layui.all.js"></script>
+	<!-- Waypoints -->
+	<script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
+	<!-- Main -->
+	<script type="text/javascript" src="js/main.js"></script>
+	<!-- Modify_pass -->
+	<script type="text/javascript" src="js/modify_pass.js"></script>
+</body>
+
+</html>

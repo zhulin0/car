@@ -15,36 +15,34 @@
 <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 <!-- Animate -->
 <link rel="stylesheet" type="text/css" href="css/animate.css">
-<body style="background: rgb(55,61,65);">
+<body style="background: rgb(55,61,65); min-width: 0;">
 	<div class="container">
 		<div class="row">		
 			<div class="col-sm-12" style="background: url('image/top2.jpg');background-size:cover;display: inline-block;background-position: top center;">
 				<div class="row header" style="border-bottom: 1px solid #555;">
-					<div class="logo col-sm-7 col-sm-offset-1 col-xs-6">智能车云平台</div>
+						<div class="logo col-sm-8 col-sm-offset-1 col-xs-6">
+							<img src="./image/autocar_logo.png" style="width: 100px;margin-right: 10px;">智能车云平台</div>
 					<div class="header-right">
-						<p><a>首页</a></p>
-						<p><a>注册</a></p>
 					</div>
 				</div>
 				<div class="row login animate-box">
 					<div class="col-sm-12 login_left center" data-animate-effect="fadeIn">
-						<p>智能车云平台</p>
-						<p>以最简单的方式，最低廉的成本，帮助现有设备制造商向物联网转型，物联网厂商设备智能化转型</p>
+						<p>乐出行，悦自由</p>
 					</div>
 				</div>
 				<div class="row login animate-box">
-					<div class="col-sm-12 login_right animate-box" data-animate-effect="fadeInDown">
-						<p class="center">密码登陆</p>
-						<div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12 input_div">
+					<div class="col-sm-12 login_right animate-box" data-animate-effect="fadeInDown" style="height: 510px;">
+						<p class="center">密码登录</p>
+						<div class="col-md-10 col-md-offset-1 col-sm-12 col-xs-12 input_div input_div_first"  style=" margin-top: 60px;">
 							<div class="row center">
 								<div class="col-sm-2 col-xs-2"><i class="fa fa-user-o"></i></div>
 								<input class="col-sm-10 col-xs-10" type="email" name="name" placeholder="用户名">
 							</div>
 						</div>
-						<div class="col-md-10 col-md-offset-1 col-sm-12 col-sm-12 col-xs-12 input_div">
+						<div class="col-md-10 col-md-offset-1 col-sm-12 col-sm-12 col-xs-12 input_div input_div1366" style=" margin-top: 60px;">
 							<div class="row center">
 								<div class="col-sm-2 col-xs-2"><i class="fa fa-key"></i></div>
-								<input class="col-sm-10 col-xs-10" type="password" name="password" placeholder="密码">
+								<input class="col-sm-10 col-xs-10" type="password" name="password" placeholder="密码" onkeydown="keyup_submit(event);">
 							</div>
 						</div>
 <!-- 						<div  class="col-md-10 col-md-offset-1 col-sm-12 col-sm-12 col-xs-12 verify">
@@ -63,42 +61,81 @@
 								</div>
 							</div>
 						</div> -->
-						<div  class="col-md-8 col-md-offset-2 col-sm-12 col-sm-12 col-xs-12 verify" style="margin-top: 40px">
+						<div  class="col-md-8 col-md-offset-2 col-sm-12 col-sm-12 col-xs-12 verify  verify1366" style="margin-top: 40px">
 							<div class="row">
-								<input class="col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1" type="button" name="verify" value="登陆" onclick="login()">
+								<input class="col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1" type="button" name="verify" value="登录" onclick="login()">
 								<div class="col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 load"><i class="fa fa-spinner fa-spin"></i></div>
 							</div>
 						</div>
 						<div  class="col-md-8 col-md-offset-2 col-sm-12 col-sm-12 col-xs-12" style="margin-top: 10px;">
 							<div class="row">
-								<div class="col-sm-6 col-xs-6 center"><a>忘记密码</a></div>
-								<div class="col-sm-6 col-xs-6 center"><a>免费注册</a></div>
+								<div class="col-sm-8 col-xs-8"><a style="color: #029ffb;padding-left: 10px" href="register.html">没有账号？我要注册</a></div>
+								<div class="col-sm-4 col-xs-4 center"><a style="color: #029ffb;" href="forget_pa.html">忘记密码</a></div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+			<div class="clearfix"></div>
+			<div class="footer1" style="color: #fff;text-align: center;margin-top: 30px;
+			margin-bottom: 15px;">
+				<img src="./image/autocar_logo.png" class="footer-img" style="width: 100px;margin-bottom: 10px;"><p>北京奥特贝睿科技有限公司 版权所有 <br> Copyright © 2012-2018 Beijing AutoBrain Technology Co., Ltd. All Rights reserved</p>
+			</div>
 		</div>
 	</div>
+
+	<div class="modal fade" id="modify_init_pa" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+	data-backdrop="static" data-keyboard="false" style="top: 240px;">
+	   <div class="modal-dialog" style="width: 500px;">
+		   <div class="modal-content">
+			   <div class="modal-header">
+				   <h4 class="modal-title" id="myModalLabel">
+					   修改初始密码
+				   </h4>
+			   </div>
+			   <div class="modal-body" style="padding: 0;">
+				   <div class="row">
+					   <div class="user-in col-sm-12">
+						   <span>密码:</span>
+						   <input style="width: 320px" type="password" name="mo_password" placeholder="长度为8~16位，必须含有大小写字母和数字">
+						   <span style="font-size:  14px;width: 320px;display: inline-block;line-height: 20px;vertical-align: middle;margin-left: 165px;color: #999;margin-top: -15px;"></span>
+						</div>
+					   <div class="user-in col-sm-12">
+						   <span>确认密码:</span>
+						   <input style="width: 320px" type="password" name="mo_re_password" placeholder="确认密码" onkeydown="keyup_modify_init(event);">
+					   </div>
+					   <div class="user-in col-sm-12" style="padding-left: 70px;padding-right: 40px;font-size: 1.0em; margin-top: 11px;color: red;">
+						   由于初始密码为系统默认密码，为安全起见，请您修改账户密码
+					   </div>
+				   </div>
+			   </div>
+			   <div class="modal-footer">
+				   <button type="button" class="btn btn-primary modal_push_response" onclick="modify_init()">确认</button>
+			   </div>
+		   </div>
+	   </div>
+   </div>
+	<!-- JQuery -->
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<!-- Cookie -->
+	<script type="text/javascript" src="js/jquery.cookie.js"></script>
+	<!-- Layui -->
+	<script type="text/javascript" src="layui/layui.all.js"></script>
+	<!-- Waypoints -->
+	<script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
+	<!-- Bootstrap -->
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<!-- Main -->
+	<script type="text/javascript" src="js/main.js"></script>
+	<!-- Login -->
+	<script type="text/javascript" src="js/login.js"></script>
+	
+	
+	<script type="text/javascript">
+		// $("input[type='button']").on("click",function(){
+		// 	window.location.href="dashboard.html";
+		// })
+	</script>
 </body>
-<!-- JQuery -->
-<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-<!-- Cookie -->
-<script type="text/javascript" src="js/jquery.cookie.js"></script>
-<!-- Layui -->
-<script type="text/javascript" src="layui/layui.all.js"></script>
-<!-- Waypoints -->
-<script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
-<!-- Main -->
-<script type="text/javascript" src="js/main.js"></script>
-<!-- Login -->
-<script type="text/javascript" src="js/login.js"></script>
-
-
-<script type="text/javascript">
-	// $("input[type='button']").on("click",function(){
-	// 	window.location.href="dashboard.html";
-	// })
-</script>
 
 </html>

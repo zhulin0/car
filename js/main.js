@@ -1,82 +1,73 @@
+//var addr="http://172.24.75.19:8080";
+var addr="http://123.150.131.187:8088/web";
+
+var PAGENUM=14;
+
 ;(function () {
-	
-	'use strict';
+    var contentWayPoint = function() {
+        var i = 0;
+        $('.animate-box').waypoint( function( direction ) {
+
+            if( direction === 'down' && !$(this.element).hasClass('animated-fast') ) {
+
+                i++;
+
+                $(this.element).addClass('item-animate');
+                setTimeout(function(){
+
+                    $('body .animate-box.item-animate').each(function(k){
+                        var el = $(this);
+                        setTimeout( function () {
+                            var effect = el.data('animate-effect');
+                            if ( effect === 'fadeIn') {
+                                el.addClass('fadeIn animated-fast');
+                            } else if ( effect === 'fadeInLeft') {
+                                el.addClass('fadeInLeft animated-fast');
+                            } else if ( effect === 'fadeInRight') {
+                                el.addClass('fadeInRight animated-fast');
+                            } else {
+                                el.addClass('fadeInUp animated-fast');
+                            }
+
+                            el.removeClass('item-animate');
+                        },  k * 200, 'easeInOutExpo' );
+                    });
+
+                }, 100);
+
+            }
+
+        } , { offset: '80%' } );
+    };
 
 
 
-	var isMobile = {
-		Android: function() {
-			return navigator.userAgent.match(/Android/i);
-		},
-			BlackBerry: function() {
-			return navigator.userAgent.match(/BlackBerry/i);
-		},
-			iOS: function() {
-			return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-		},
-			Opera: function() {
-			return navigator.userAgent.match(/Opera Mini/i);
-		},
-			Windows: function() {
-			return navigator.userAgent.match(/IEMobile/i);
-		},
-			any: function() {
-			return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-		}
-	};
 
-
-
-	var contentWayPoint = function() {
-		var i = 0;
-		$('.animate-box').waypoint( function( direction ) {
-
-			if( direction === 'down' && !$(this.element).hasClass('animated-fast') ) {
-				
-				i++;
-
-				$(this.element).addClass('item-animate');
-				setTimeout(function(){
-
-					$('body .animate-box.item-animate').each(function(k){
-						var el = $(this);
-						setTimeout( function () {
-							var effect = el.data('animate-effect');
-							if ( effect === 'fadeIn') {
-								el.addClass('fadeIn animated-fast');
-							} else if ( effect === 'fadeInLeft') {
-								el.addClass('fadeInLeft animated-fast');
-							} else if ( effect === 'fadeInRight') {
-								el.addClass('fadeInRight animated-fast');
-							} else {
-								el.addClass('fadeInUp animated-fast');
-							}
-
-							el.removeClass('item-animate');
-						},  k * 200, 'easeInOutExpo' );
-					});
-					
-				}, 100);
-				
-			}
-
-		} , { offset: '80%' } );
-	};
-
-
-
-	
-	$(function(){
-		contentWayPoint();
-	});
+    $(function(){
+        contentWayPoint();
+    });
 
 
 }());
 
 
 $("body").on("click",".header-right",function(){
-	window.location.href="user.html";
-})
+    window.location.href="user.html";
+});
+
+$(".tab").on('click', function () {
+    $(".tab-active").removeClass("tab-active");
+    $(this).addClass("tab-active");
+    var id = $(this).attr("id");
+    $(".show").removeClass("show");
+    $("." + id + "-content").addClass("show");
+});
+
+function logout() {
+    $.cookie('token', '');
+    window.location.href = "login.html";
+}
 
 
-var addr="http://localhost:8080";
+
+

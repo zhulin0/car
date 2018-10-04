@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>智能车</title>
-<!-- Bootstrap -->
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-<!-- Main -->
-<link rel="stylesheet" type="text/css" href="css/main.css">
-<!-- Font-awesome -->
-<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-<!-- Animate -->
-<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<!-- Main -->
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<!-- Font-awesome -->
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+	<!-- Animate -->
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<!-- bootstrapTreeCss -->
+	<link rel="stylesheet" href="css/bootstrapStyle/bootstrapStyle.css" type="text/css">
 </head>
 
 <body style="">
@@ -19,10 +22,14 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="row header" style="background-color: #171717;display: block;">
-					<div class="logo col-sm-8 col-sm-offset-1 col-xs-6">智能车云平台</div>
+					<div class="logo col-sm-8 col-sm-offset-1 col-xs-6">
+						<img src="./image/autocar_logo.png" style="width: 100px;margin-right: 10px;">智能车云平台</div>
 					<div class="header-right">
-						<img src="image/avatar.png" class="user-picture">
-						<span class="user-name">admin</span>
+						<img src="" class="user-picture">
+						<span class="user-name">
+							<!-- admin -->
+						</span>
+						<a href="" onclick="logout()">退出</a>
 					</div>
 				</div>
 
@@ -32,79 +39,112 @@
 							<li class="col-sm-12 hidden-xs" style="height: 80px;line-height:80px; font-size: 1.2em;letter-spacing:3px">
 								<i class="fa fa-navicon" style="font-size: 1.4em;"></i>
 							</li>
-							<li class="col-sm-12"  onclick="javascript:window.location.href='dashboard.html'">
-								<i class="fa fa-list-alt"></i>车辆概况
-								<span class="green">36</span>
-								<span class="orange" style="margin-left: 45px;">7</span>
-							</li>
 							<li class="col-sm-12" onclick="javascript:window.location.href='map.html'">
 								<i class="fa fa-map"></i>车辆分布
 							</li>
-							<li class="col-sm-12"  onclick="javascript:window.location.href='log.html'">
+							<li class="col-sm-12" onclick="javascript:window.location.href='dashboard.html'">
+								<i class="fa fa-list-alt"></i>车辆概况
+								<span class="green menu_number1">0</span>
+								<span class="red menu_number2" style="margin-left: 45px;">0</span>
+							</li>
+							<!-- <li class="col-sm-12" onclick="javascript:window.location.href='log.html'">
 								<i class="fa fa-list-ol"></i>车辆日志
-							</li>
-							<li class="col-sm-12"  onclick="javascript:window.location.href='warning.html'">
+							</li> -->
+							<li class="col-sm-12" onclick="javascript:window.location.href='warning2.html'">
 								<i class="fa fa-warning"></i>车辆异常
-								<span class="red">12</span>
+								<span class="red menu_number3">0</span>
 							</li>
-							<li class="col-sm-12" onclick="javascript:window.location.href='users.html'" >
+							<li class="col-sm-12 menu_users" onclick="javascript:window.location.href='users.html'">
 								<i class="fa fa-users"></i>用户管理
 							</li>
-							<li class="col-sm-12"  style="background-color: #EAEDEB;color: #000;" >
+							<!-- <li class="col-sm-12" onclick="javascript:window.location.href='car_type.html'">
 								<i class="fa fa-truck"></i>车型管理
-							</li>
-							<li class="col-sm-12"  onclick="javascript:window.location.href='car.html'" >
+							</li> -->
+							<li class="col-sm-12 menu_car" style="background-color: #EAEDEB;color: #000;">
 								<i class="fa fa-car"></i>车辆管理
 							</li>
-							<li class="col-sm-12"  onclick="javascript:window.location.href='car_team.html'">
+							<li class="col-sm-12 menu_team" onclick="javascript:window.location.href='car_team.html'">
 								<i class="fa fa-bicycle"></i>车队管理
 							</li>
-							<li class="col-sm-12"  onclick="javascript:window.location.href='push.html'">
+							<li class="col-sm-12 menu_push" onclick="javascript:window.location.href='push.html'">
 								<i class="fa fa-envelope"></i>推送设置
 							</li>
 						</ul>
 					</div>
 					<div class="col-sm-10 control" style="background-color: #f4f3f2;">
 						<div class="row general center">
-							<div class="col-md-1 online-title is-online">车型添加</div>
-							<div class="col-md-1 out-title">品牌添加</div>
-							<div class="col-md-1 offline-title">型号添加</div>
+							<div id="tab1" class="col-sm-1 tab tab-active">车型列表</div>
+							<div id="tab2" class="col-sm-1 tab">车型添加</div>
+							<div id="tab3" class="col-sm-1 tab">品牌添加</div>
+							<div id="tab4" class="col-sm-1 tab">型号添加</div>
 							<div class="search-online">
 								<input type="text" name="search" placeholder="搜索关键字">
 								<i class="fa fa-search" style="position: absolute;right: 15px; top: 8px; color: #ddd;font-size: 1.5em;"></i>
 							</div>
 						</div>
-						<div class="row user-list add-car">
+						<div class="row tab-content tab1-content">
+							<div class="col-sm-12">
+								<ul id="tree" class="ztree"></ul>
+							</div>
+						</div>
+						<div class="row tab-content tab2-content add-car show">
 							<div class="add-car-model">
-								<div class="user-in col-sm-12">
-									<span>车型:</span><input type="text" name="">
+								<div class="user-in col-sm-12 car-modal">
+									<span>车型:</span>
+									<input type="text" name="" class="car-modal-input car-modal1" lzw="car-modal1">
+									<div class="car-search-content car-modal1-search">
+
+									</div>
+								</div>
+
+								<div class="user-in col-sm-12 car-modal">
+									<span>品牌:</span>
+									<input type="text" name="" class="car-modal-input car-modal2" lzw="car-modal2">
+									<div class="car-search-content car-modal2-search">
+
+									</div>
+								</div>
+
+
+								<div class="user-in col-sm-12 car-modal">
+									<span>型号:</span>
+									<input type="text" name="" class="car-modal-input car-modal3" lzw="car-modal3">
+									<div class="car-search-content car-modal3-search">
+
+									</div>
 								</div>
 
 								<button onclick="add_car_model()">添加</button>
 							</div>
 						</div>
 
-						<div class="row out-list add-car">
+						<div class="row tab-content tab3-content add-car">
 							<div>
 								<div class="user-in col-sm-12">
-									<span>车型:</span><select class="car-model2"></select>
+									<span>车型:</span>
+									<select class="car-model2">
+									</select>
 								</div>
 								<div class="user-in col-sm-12">
-									<span>品牌:</span><input type="text" name="" class="car-mark2">
+									<span>品牌:</span>
+									<input type="text" name="" class="car-mark2">
 								</div>
 
 								<button onclick="add_car_mark()">添加</button>
 							</div>
 						</div>
 
-						<div class="row user-add add-car">
+						<div class="row tab-content tab4-content add-car">
 							<div>
 								<div class="user-in col-sm-12">
-									<span>车型与品牌:</span><select class="car-model3" onchange="get_car_type()"></select><select class="car-mark3"></select>
+									<span>车型与品牌:</span>
+									<select class="car-model3" onchange="get_car_type()"></select>
+									<select class="car-mark3"></select>
 
 								</div>
 								<div class="user-in col-sm-12">
-									<span>型号:</span><input type="text" name="" class="car-type3">
+									<span>型号:</span>
+									<input type="text" name="" class="car-type3">
 								</div>
 
 								<button onclick="add_car_type()">添加</button>
@@ -116,102 +156,135 @@
 			</div>
 		</div>
 	</div>
-</body>
-<!-- JQuery -->
-<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-<!-- Cookie -->
-<script type="text/javascript" src="js/jquery.cookie.js"></script>
-<!-- Layui -->
-<script type="text/javascript" src="layui/layui.all.js"></script>
-<!-- Waypoints -->
-<script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
-<!-- Main -->
-<script type="text/javascript" src="js/main.js"></script>
-<!-- returnTologin -->
-<script type="text/javascript" src="js/returnTologin.js"></script>
+	<!-- JQuery -->
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js">
+	</script>
+	<script type="text/javascript">
 
-<script type="text/javascript" src="js/car_type.js"></script>
+		function change_height() {
+			var width = $("body").width();
+			if (width >= 766) {
+				var height = $(window).height();
+				$(".tab-content").height(function (n, c) {
+					return height - 81 - 84 - 26;
+				})
 
-<script type="text/javascript">
-
-	function change_height(){
-		var width=$("body").width();
-		if(width>=766){
-			var height=$(window).height();
-			$(".user-list").height(function(n,c){
-				return height-81-84-26;
-			})
-			$(".user-add").height(function(n,c){
-				return height-81-84-26;
-			})
-			$(".out-list").height(function(n,c){
-				return height-81-84-26;
-			})
-
-			var header_height=$(".header").height();
-			$(".menu").height(function(n,c){
-				return height-header_height;
-			});
-			$(".control").height(function(n,c){
-				return height-header_height;
-			});
-
-			$('.menu_after').css({
-					height:function(n,c){
-					return height-header_height-100;
-				},
-					left:function(n,c){
-						var menu_width=$(".menu").width();
-					return menu_width;
-				},
-					display:function(n,c){
-						return 'block';
-					}
-			});
-		}else{
-			$(".menu").height(60);
-			$(".control").css('height',"auto");
-			$(".menu").css("max-width","100%");
-			$(".menu").css("min-height","0px");
-			$('.menu_after').css({"display":"none"});
+				var header_height = $(".header").height();
+				$(".menu").height(function (n, c) {
+					return height - header_height;
+				});
+				$(".control").height(function (n, c) {
+					return height - header_height;
+				});
+			} else {
+				$(".menu").height(60);
+				$(".control").css('height', "auto");
+				$(".menu").css("max-width", "100%");
+				$(".menu").css("min-height", "0px");
+			}
 		}
-	}
-	change_height();
-	$(window).resize(function(){
+		change_height();
+		$(window).resize(function () {
 			change_height();
-	});
+		});
+	</script>
+	<!-- Cookie -->
+	<script type="text/javascript" src="js/jquery.cookie.js"></script>
+	<!-- Layui -->
+	<script type="text/javascript" src="layui/layui.all.js"></script>
+	<!-- Waypoints -->
+	<script type="text/javascript" src="js/jquery.waypoints.min.js"></script>
+	<!-- Main -->
+	<script type="text/javascript" src="js/main.js"></script>
+	<!-- returnTologin -->
+	<script type="text/javascript" src="js/returnTologin.js"></script>
+	<!-- BootstrapTreeJs -->
+	<script type="text/javascript" src="js/jquery.ztree.core.js"></script>
+	<script type="text/javascript" src="js/jquery.ztree.excheck.js"></script>
+	<script type="text/javascript" src="js/jquery.ztree.exedit.js"></script>
 
-	$(".online-title").on('click',function(){
-		$(".general").children().removeClass("is-online");
-		$(".online-title").addClass("is-online");
-		$(".user-add").css("display","none");
-		$(".out-list").css("display","none");
-		$(".user-list").css("display","block");
-	});
-	$(".offline-title").on('click',function(){
-		$(".general").children().removeClass("is-online");
-		$(".offline-title").addClass("is-online");
-		$(".user-add").css("display","block");
-		$(".out-list").css("display","none");
-		$(".user-list").css("display","none");
-	});
-	$(".out-title").on('click',function(){
-		$(".general").children().removeClass("is-online");
-		$(".out-title").addClass("is-online");
-		$(".user-add").css("display","none");
-		$(".out-list").css("display","block");
-		$(".user-list").css("display","none");
-	})
+	<script type="text/javascript" src="js/car_type.js"></script>
+	<script type="text/javascript">
+		var flag = true;
+		$('.car-modal-input').on({
+			compositionstart: function () { flag = false; },
+			compositionend: function () { flag = true; },
+			input: function () {
+				var _this = this;
+				setTimeout(function () {
+					if (flag) {
+						var which = $(_this).attr("lzw");
+						var value = $(_this).val();
+						search_type(which, value);
+					}
+				}, 0);
+			}
+		});
 
-	$(".filter-title").on("mouseover",function(){
-		$(".filter-content").children().css("display","none");
-		var x=$(this).attr("data");
-		$("."+x).css("display","block");
+		$(".car-modal-input").focus(function () {
+			var which = $(this).attr("lzw");
+			$("." + which + "-search").css("display", "block");
+			var value = $(this).val();
+			search_type(which, value);
+		})
+		$(".car-modal-input").blur(function () {
+			var _this = this;
+			setTimeout(function () {
+				var which = $(_this).attr("lzw");
+				$("." + which + "-search").css("display", "none");
+			}, 100);
+		})
 
-	})
-	$(".filter-title").on("mouseout",function(){
-		var x=$(this).attr("data");
-	})
 
-</script>
+		$(".car-search-content").on("click", "div", function () {
+			var text = $(this).text();
+			var which = $(this).attr("lzw");
+			$("." + which).val(text);
+		})
+
+		function search_type(which, value) {
+			//console.log(which+" "+value);
+			var search_content = [];
+			var mark_array = [];
+			if (which == "car-modal1") {
+				mark_array = get_key(select_menu);
+			}
+			else if (which == "car-modal2") {
+				var mark1_array = get_key(select_menu);
+				var mark1 = $(".car-modal1").val();
+				var child2 = select_menu[mark1];
+				mark_array = get_key(child2);
+			}
+			else if (which == "car-modal3") {
+				var mark1_array = get_key(select_menu);
+				var mark1 = $(".car-modal1").val();
+				var child2 = select_menu[mark1];
+				var mark2_array = get_key(child2);
+				var mark2 = $(".car-modal2").val();
+				var child3 = child2[mark2];
+				for (var i = 0; i < child3.length; i++) {
+					mark_array.push(child3[i].tpName);
+				}
+
+			}
+			for (var i = 0; i < mark_array.length; i++) {
+				if ((new RegExp(value)).test(mark_array[i])) {
+					search_content.push(mark_array[i])
+				}
+			}
+
+			$("." + which + "-search").html("");
+			if (search_content.length == 0) {
+				$("." + which + "-search").css("border", "none");
+			}
+			for (var i = 0; i < search_content.length; i++) {
+				$("." + which + "-search").css("border", "1px solid #ddd");
+				$("." + which + "-search").append('<div class="' + which + '-search-tab" lzw="' + which + '">' + search_content[i] + '</div>');
+			}
+		}
+	</script>
+
+
+</body>
+
 </html>

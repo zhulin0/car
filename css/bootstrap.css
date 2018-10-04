@@ -1618,9 +1618,14 @@ pre code {
   padding-right: 15px;
   padding-left: 15px;
 }
-.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-13{
   float: left;
 }
+/*warning*/
+/*.col-xs-14 {*/
+  /*display:inline;*/
+/*}*/
+
 .col-xs-12 {
   width: 100%;
 }
@@ -1774,7 +1779,7 @@ pre code {
 .col-xs-offset-0 {
   margin-left: 0;
 }
-@media (min-width: 768px) {
+@media (min-width:1px) {
   .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
     float: left;
   }
@@ -2261,8 +2266,6 @@ th {
   text-align: left;
 }
 .table {
-  width: 100%;
-  max-width: 100%;
   margin-bottom: 20px;
 }
 .table > thead > tr > th,
@@ -3465,12 +3468,14 @@ input[type="button"].btn-block {
   width: 100%;
 }
 .fade {
+  display: none;
   opacity: 0;
   -webkit-transition: opacity .15s linear;
        -o-transition: opacity .15s linear;
           transition: opacity .15s linear;
 }
 .fade.in {
+  display: block;
   opacity: 1;
 }
 .collapse {
